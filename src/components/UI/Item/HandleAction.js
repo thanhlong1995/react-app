@@ -32,7 +32,6 @@ function HandleAction() {
         };
         fetchPutApi();
         setRefeshPage(false);
-        console.log((count = count + 1));
     }, [refeshPage]);
 
     async function submitHandler(event) {

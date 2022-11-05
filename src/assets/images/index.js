@@ -1,7 +1,6 @@
 const images = {
-    logo: require('~/assets/images/logo.svg').default,
+    logoFacebook: require('~/assets/images/f_logo_RGB-White_100.png'),
     noImage: require('~/assets/images/no-image.png'),
-    changedImage: require('~/assets/images/change-img.png'),
 };
 
 export default images;

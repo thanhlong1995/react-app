@@ -11,6 +11,7 @@ function NavMenu() {
     const { themeColor } = useContext(ThemeContext);
     const [navList, setNavList] = useState([]);
     const [error, setError] = useState(null);
+    const [active, setActive] = useState('Home');
 
     useEffect(() => {
         getNavModule();
@@ -35,13 +36,15 @@ function NavMenu() {
 
     return (
         <div className={cx('wrapper', !themeColor ? 'wrapper-has-color' : '')}>
-            {navList.map((item, index) => (
-                <aside className={cx('nav-link')} key={index} activeClassName={cx('nav-link-active')}>
-                    <Link to={item.href} className={cx('item-link')}>
-                        {item.name}
-                    </Link>
-                </aside>
-            ))}
+            {navList.length > 0
+                ? navList.map((item, index) => (
+                      <aside className={cx('nav-link', active === item.name && 'is-active')} key={index}>
+                          <Link to={item.href} className={cx('item-link')} onClick={() => setActive(item.name)}>
+                              {item.name}
+                          </Link>
+                      </aside>
+                  ))
+                : error}
         </div>
     );
 }

@@ -5,7 +5,6 @@ import DefaultLayout from '~/layouts/DefaultLayout';
 import { Fragment } from 'react';
 
 function App() {
-    //const [color, setColor] = useState('dark');
     const [themeColor, setThemeColor] = useState(true);
 
     return (
@@ -36,18 +35,6 @@ function App() {
                     </Routes>
                 </div>
             </Router>
-            {/* <main>
-                {!isLoggedIn && <Login onLogin={loginHandler} setUserLogin={setUser} />}
-                {isLoggedIn && (
-                    <Home
-                        onLogout={logoutHandler}
-                        isLoggedIn={isLoggedIn}
-                        logoutHandler={logoutHandler}
-                        userLogin={userLogin}
-                        themeColor={color}
-                    />
-                )}
-            </main> */}
         </ThemeContext.Provider>
     );
 }
