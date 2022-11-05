@@ -45,7 +45,6 @@ function App() {
                         logoutHandler={logoutHandler}
                         userLogin={userLogin}
                         themeColor={color}
-                        longnlonnlonglonglonglong
                     />
                 )}
             </main> */}
