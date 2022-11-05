@@ -1,0 +1,28 @@
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    font-size: 2rem;
+    background: #081229;
+    height: 60px;
+    border-bottom: 3px solid #081229;
+    z-index: 10000;
+}
+.has-border-bottom {
+    background-color: var(--color-primary) !important;
+    border-bottom: 3px solid var(--color-light-pink);
+}
+.main-header-link {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--color-primary);
+    color: #fff;
+    height: 100%;
+}
