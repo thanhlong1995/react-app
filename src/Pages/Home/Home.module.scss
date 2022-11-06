@@ -32,14 +32,32 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    padding: 40px;
 }
 .button-module .button {
     width: max-content;
-    min-width: 150px;
-    padding: 15px 20px;
+    min-width: 200px;
+    padding: 15px 40px;
     background-color: var(--color-primary);
     color: #fff;
     margin: 10px;
     font-weight: 400;
     font-size: 18px;
+    border-radius: 6px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.not-theme-color {
+    border: 1px solid var(--color-light-blue);
+    box-sizing: border-box;
+}
+
+.video-introduce {
+    width: 100%;
+    display: flex;
+    justify-items: center;
+    align-items: center;
 }

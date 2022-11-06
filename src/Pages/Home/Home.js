@@ -1,12 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
-import { DesktopLogo } from '~/components/Icons';
 import Button from '~/components/UI/Button';
+import { ThemeContext } from '../../App';
+import Videos from '~/assets/videos';
+import {Videos as Player} from '~/components/UI/Videos'
 
 const cx = classNames.bind(styles);
 
 const Home = (props) => {
+    const { themeColor } = useContext(ThemeContext);
     const handleOnclickDemo = () => {};
     const handleOnclickGetStart = () => {};
 
@@ -21,19 +24,22 @@ const Home = (props) => {
             </div>
             <div className={cx('button-module')}>
                 <Button
-                    className={cx('button')}
+                    className={cx('button', !themeColor ? '' : 'not-theme-color')}
                     onclick={handleOnclickDemo}
                     primary
                 >
                     Demo
                 </Button>
                 <Button
-                    className={cx('button')}
+                    className={cx('button', !themeColor ? '' : 'not-theme-color')}
                     onclick={handleOnclickGetStart}
                     primary
                 >
-                    Get Started
+                    Get Started&nbsp;<span>▶</span>
                 </Button>
+            </div>
+            <div className={cx('video-introduce')}>
+                <Player src={Videos.reactdemo} width="750" height="500" />
             </div>
         </div>
     );
