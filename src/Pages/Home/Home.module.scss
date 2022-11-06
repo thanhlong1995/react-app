@@ -12,3 +12,34 @@
     width: 100%;
     overflow-y: auto;
 }
+.title-home-page {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: center;
+}
+.title-home-page .title {
+    font-family: system-ui;
+    font-size: 50px;
+    margin: 80px auto 10px;
+}
+.title-home-page .desciption {
+    color: var(--color-light-pink);
+}
+.button-module {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.button-module .button {
+    width: max-content;
+    min-width: 150px;
+    padding: 15px 20px;
+    background-color: var(--color-primary);
+    color: #fff;
+    margin: 10px;
+    font-weight: 400;
+    font-size: 18px;
+}

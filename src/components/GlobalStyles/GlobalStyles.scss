@@ -13,8 +13,8 @@
     --color-purple: #0f111b;
     --color-grey: #333;
     --color-light-grey: #ccc;
-    --font-family: 'sourcecodepro', 'roboto', 'ProximaNova', serif, monospace, Georgia, Arial, Helvetica, Courier New,
-        Lucida Sans Unicode;
+    --font-family: 'sourcecodepro', 'roboto', 'ProximaNova', serif, monospace,
+        Georgia, Arial, Helvetica, Courier New, Lucida Sans Unicode;
 
     // Default layout
     --default-layout-header-height: 60px;
@@ -72,6 +72,15 @@ body {
     .tippy-box[data-placement^='bottom'] > .tippy-arrow::before {
         top: -8px;
     }
+}
+h1 {
+    display: block;
+    font-size: 2em;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
 }
 
 /* width */
