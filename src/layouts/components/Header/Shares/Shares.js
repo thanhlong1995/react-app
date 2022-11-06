@@ -4,24 +4,25 @@ import styles from './Shares.module.scss';
 import Image from '~/components/UI/Image';
 import images from '~/assets/images';
 import { GithubIcon } from '~/components/Icons';
-import { Link } from 'react-router-dom';
-import Constant from '~/components/Constant';
+import Button from '~/components/UI/Button';
 
 const cx = classNames.bind(styles);
 
 function Shares() {
-    console.log(Constant.linkFacebook);
+     const linkFacebook ='https://www.facebook.com/Long.NT.95';
+     const linkGithub = 'https://github.com/thanhlong1995/react-hook-api-app';
+     
     return (
         <div className={cx('wrapper')}>
             <div className={cx('icon-share')}>
-                <Link>
+                <Button href={linkFacebook} target="_blank">
                     <Image src={images.logoFacebook} alt="Facebook logo" className={cx('facebook-logo')} />
-                </Link>
+                </Button>
             </div>
             <div className={cx('icon-share')}>
-                <Link>
+                <Button href={linkGithub}>
                     <GithubIcon className={cx('github-logo')} />
-                </Link>
+                </Button>
             </div>
         </div>
     );
