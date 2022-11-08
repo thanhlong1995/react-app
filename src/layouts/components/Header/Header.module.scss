@@ -26,3 +26,20 @@
     color: #fff;
     height: 100%;
 }
+.main-header-action {
+    max-width: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: flex-start;
+}
+.main-header-share {
+    max-width: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: flex-end;
+}
+.btn-logout {
+    &:hover {
+        border: 1px solid var(--color-light-pink);
+    }
+}

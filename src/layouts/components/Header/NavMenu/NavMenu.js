@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext, memo } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import { ThemeContext } from '../../../../App';
 import * as Service from '~/services/NavModuleService';
 import classNames from 'classnames/bind';
@@ -38,10 +38,23 @@ function NavMenu() {
         <div className={cx('wrapper', !themeColor ? 'wrapper-has-color' : '')}>
             {navList.length > 0
                 ? navList.map((item, index) => (
-                      <aside className={cx('nav-link', active === item.name && 'is-active')} key={index}>
-                          <Link to={item.href} className={cx('item-link')} onClick={() => setActive(item.name)}>
+                      <aside
+                          className={cx(
+                              'nav-link',
+                              active === item.name && 'is-active',
+                          )}
+                          key={index}>
+                          <NavLink
+                              to={item.href}
+                              style={({ isActive }) => ({
+                                  borderBottom: isActive
+                                      ? '1px solid #ec5990'
+                                      : '',
+                                  paddingBottom: isActive ? '4px' : '',
+                              })}
+                              onClick={() => setActive(item.name)}>
                               {item.name}
-                          </Link>
+                          </NavLink>
                       </aside>
                   ))
                 : error}

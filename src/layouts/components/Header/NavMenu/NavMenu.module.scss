@@ -14,7 +14,8 @@
     padding: 13px 8px;
     min-width: 550px;
     box-shadow: 0 0 5px 0 #000;
-    .nav-link.is-active {
+
+    .active {
         border-bottom: 1px solid var(--color-light-pink);
     }
 }
@@ -29,7 +30,7 @@
     box-shadow: none;
 }
 .wrapper-has-color {
-    .nav-link.is-active {
+    .active {
         border-bottom: 2px solid #fff !important;
     }
 }

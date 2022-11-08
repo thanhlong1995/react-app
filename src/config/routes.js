@@ -1,8 +1,9 @@
 const routes = {
     home: '/',
-    getstart: '/get-start',
-    api: '/api',
     advance: '/advance',
+    admin: '/admin',
+    api: '/api',
+    getstart: '/get-start',
     resources: '/resources',
 };
 

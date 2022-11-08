@@ -1,0 +1,50 @@
+table {
+    text-align: center;
+    font-family: 'Trebuchet MS', Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    border: 3px solid #ddd;
+    width: 100%;
+    border: 2px solid;
+    height: auto;
+}
+tbody {
+    overflow-y: auto;
+}
+table td,
+table th {
+    border: 1px solid #fff;
+    padding: 8px;
+}
+
+table tr:nth-child(even) {
+}
+
+table tr:hover {
+    background-color: #ddd;
+}
+
+table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: var(--color-blue);
+    color: #fff;
+}
+
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+}
+
+td {
+    text-align: center;
+}
+// button
+.btn-edit {
+    &:hover {
+        border: 1px solid var(--color-light-pink);
+    }
+}

@@ -24,7 +24,7 @@ function App() {
                                 <Route
                                     path={route.path}
                                     element={
-                                        <Layout>
+                                        <Layout Page={route.path}>
                                             <Page />
                                         </Layout>
                                     }

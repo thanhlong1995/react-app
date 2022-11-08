@@ -1,0 +1,119 @@
+.wrapper {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 70px;
+    font-family: 'ProximaNova';
+}
+.title-getstart-page {
+    display: flex;
+    flex-direction: column;
+    justify-items: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.title-getstart-page .title {
+    font-family: system-ui;
+    font-size: 55px;
+    margin: 80px auto 10px;
+}
+.title-getstart-page .desciption {
+    color: var(--color-light-pink);
+}
+//menu
+.main {
+    display: grid;
+    grid-template-columns: 300px minmax(0, 1fr);
+    margin: 0 auto;
+    max-width: 1235px;
+    overflow: hidden;
+    padding: 0 15px 100px 20px;
+    position: relative;
+    width: 100%;
+    justify-content: flex-start;
+}
+.title-list {
+    font-size: 1.1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 10px auto 20px;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+.typography {
+    font-size: 1.6rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 10px auto 0px;
+    max-width: 600px;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+    color: rgb(81, 99, 145);
+
+    &:before {
+        margin-left: -50%;
+        right: 0.5em;
+        background-color: var(--color-light-blue);
+        content: '';
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+        box-sizing: inherit;
+    }
+    &:after {
+        left: 0.5em;
+        margin-right: -50%;
+        background-color: var(--color-light-blue);
+        content: '';
+        display: inline-block;
+        height: 1px;
+        position: relative;
+        vertical-align: middle;
+        width: 50%;
+        box-sizing: inherit;
+    }
+}
+.typography {
+    &:before {
+        margin-left: -50%;
+        right: 0.5em;
+    }
+}
+.typography {
+    &:after {
+        left: 0.5em;
+        margin-right: -50%;
+    }
+}
+.div-module-menu {
+    display: block;
+}
+.module-menu {
+    width: 260px;
+    position: relative;
+}
+.div-menu {
+    margin-top: -100px;
+    position: fixed;
+    width: 250px;
+}
+.module-menu.div {
+    margin-top: -10px;
+    position: fixed;
+}
+.title-list {
+    max-width: 260px;
+}
+
+//content
+.content {
+    display: block;
+}
