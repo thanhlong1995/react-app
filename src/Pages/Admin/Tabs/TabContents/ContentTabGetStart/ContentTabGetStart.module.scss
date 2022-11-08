@@ -3,25 +3,4 @@
     padding: 10px;
     width: 100%;
 }
-// wrap-popper
-.wrap-popper {
-    position: fixed !important;
-    width: 100%;
-    height: 100%;
-    z-index: 1000;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding-top: 8%;
-    overflow-y: hidden;
-}
-.main-popper {
-    display: flex;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    padding: 32px 16px;
-    max-width: 100vw;
-}
+

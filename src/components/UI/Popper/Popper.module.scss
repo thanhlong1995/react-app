@@ -1,9 +1,18 @@
-.wrapper {
+.wrapper-popper {
     width: 100%;
     max-height: min((100vh - 96px) - 60px, 734px);
-    min-height: 100px;
+    min-height: 100%;
     padding-top: 8px;
     box-shadow: rgb(0 0 0 / 12%) 0px 2px 12px;
     border-radius: 8px;
     overflow-y: auto;
+    z-index: 999999;
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #000000b0;
+    overflow-y: auto;
 }
+

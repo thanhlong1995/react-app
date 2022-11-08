@@ -25,3 +25,8 @@ export const putByID = async (id, params = {}) => {
     const res = await request.putByID(`doc-react/${id}`, params);
     return res;
 };
+
+export const post = async (item = {}) => {
+    const res = await request.post(`item`, item);
+    return res;
+};

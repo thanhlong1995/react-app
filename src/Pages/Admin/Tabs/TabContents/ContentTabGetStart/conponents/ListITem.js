@@ -6,7 +6,7 @@ import Table from '~/components/UI/Table';
 
 const cx = classNames.bind(styles);
 
-function ListItem({ action }) {
+function ListItem() {
     const [listTbody, setList] = useState([]);
     const [error, setError] = useState(null);
     const [listThead, setListThead] = useState([]);
@@ -32,7 +32,7 @@ function ListItem({ action }) {
             }
         };
         fetchPutApi();
-    }, [action]);
+    }, []);
 
     console.log('rerender');
 

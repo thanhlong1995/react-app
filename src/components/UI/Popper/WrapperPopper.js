@@ -4,14 +4,15 @@ import { Popper } from '@mui/material';
 
 const cx = classNames.bind(styles);
 
-function WrapperPopper({ children }, props) {
+function WrapperPopper({ children, id, open, anchorEl, className}) {
     return (
-        <div className={cx('wrapper', props.className)}>
+        <div className={cx('wrapper', className)}>
             <Popper
-                id={props.id}
-                open={props.open}
-                anchorEl={props.anchorEl}
-                transition>
+                id={id}
+                open={open}
+                anchorEl={anchorEl}
+                transition
+                className={cx('wrapper-popper')}>
                 {children}
             </Popper>
         </div>

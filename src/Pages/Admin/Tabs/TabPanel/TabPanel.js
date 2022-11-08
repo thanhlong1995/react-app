@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import classNames from 'classnames/bind';
 import styles from './TabPanel.module.scss';
 import Button from '~/components/UI/Button';
-import WrapPopper from '../TabContents/ContentTabGetStart/conponents/Popper';
+import Popper from '../TabContents/ContentTabGetStart/conponents/Popper';
 
 const cx = classNames.bind(styles);
 
@@ -20,7 +20,6 @@ function TabPanel(props) {
     const handleClosePopper = () => {
         setAnchorEl(null);
     };
-
     return (
         <div
             role="tabpanel"
@@ -41,7 +40,7 @@ function TabPanel(props) {
                 )}
             </div>
             {value === index && <Box>{children}</Box>}
-            <WrapPopper
+            <Popper
                 classes
                 isDisable
                 id={id}
