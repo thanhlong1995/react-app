@@ -1,0 +1,67 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+}
+.form-input {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.div-input {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label.title {
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.input {
+    width: 95%;
+    height: calc(90px - 50px);
+    padding-left: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box !important;
+    background-color: #fff !important;
+    word-break: break-all;
+    &:focus {
+        border: 1px solid #741188;
+    }
+}
+.textarea {
+    width: 95%;
+    min-height: 100px;
+    height: calc(200px - 50px);
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    outline: none;
+    box-sizing: border-box !important;
+    background-color: #fff !important;
+
+    &:focus {
+        border: 1px solid #741188;
+    }
+}
+
+.input-calendar {
+    max-height: 35px;
+    display: flex;
+    justify-content: center;
+}
+
+.css-1u3bzj6-MuiFormControl-root-MuiTextField-root {
+    -webkit-flex-direction: column !important;
+}

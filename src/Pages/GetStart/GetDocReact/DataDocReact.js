@@ -22,7 +22,6 @@ function DataDocReact(props) {
             seMsgError(error);
         }
     };
-    console.log(props.listMenu);
     return (
         <div>
             {props.listMenu ? (
@@ -45,7 +44,7 @@ function DataDocReact(props) {
                 <ul className={cx('content-ul')}>
                     {listMenu.length > 0
                         ? listMenu.map((item) => (
-                              <li key={item.id}>
+                              <li key={item.id} className={cx('content-li')}>
                                   <h2
                                       className={cx(
                                           'typography',
@@ -55,6 +54,9 @@ function DataDocReact(props) {
                                   </h2>
                                   <div className={cx('detail')}>
                                       {item.description}
+                                  </div>
+                                  <div className={cx('detail')}>
+                                      {item.content}
                                   </div>
                               </li>
                           ))

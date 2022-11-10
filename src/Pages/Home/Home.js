@@ -28,7 +28,7 @@ const Home = (props) => {
                         'button',
                         !themeColor ? '' : 'not-theme-color',
                     )}
-                    onclick={handleOnclickDemo}
+                    onClick={handleOnclickDemo}
                     primary>
                     Demo
                 </Button>
@@ -37,7 +37,7 @@ const Home = (props) => {
                         'button',
                         !themeColor ? '' : 'not-theme-color',
                     )}
-                    onclick={handleOnclickGetStart}
+                    onClick={handleOnclickGetStart}
                     primary>
                     Get Started&nbsp;<span>▶</span>
                 </Button>

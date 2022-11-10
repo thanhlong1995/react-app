@@ -1,12 +1,14 @@
 .menu-ul {
     height: calc(100vh - 236px);
     margin-top: 0;
-    max-width: 230px;
+    max-width: 260px;
     overflow-y: auto;
     padding: 0;
 }
 .menu-ul li {
     padding-bottom: 12px;
+    display: flex;
+    align-items: center;
 }
 .item-icon {
     color: var(--color-light-pink);
@@ -38,6 +40,9 @@
 
 .content-ul {
     list-style-type: none;
+}
+.content-li {
+    margin-bottom: 40px;
 }
 .detail-title {
     max-width: 400px;

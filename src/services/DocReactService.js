@@ -27,6 +27,6 @@ export const putByID = async (id, params = {}) => {
 };
 
 export const post = async (item = {}) => {
-    const res = await request.post(`item`, item);
+    const res = await request.post(`doc-react`, item);
     return res;
 };

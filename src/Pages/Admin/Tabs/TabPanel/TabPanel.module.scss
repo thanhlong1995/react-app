@@ -15,3 +15,29 @@
         border: 1px solid var(--color-light-pink);
     }
 }
+.header-icon {
+    height: 50px;
+    width: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fff;
+    color: #333;
+    border-radius: 50%;
+    font-size: 35px;
+
+    &:hover {
+        font-size: 40px;
+        cursor: pointer;
+    }
+}
+.count-item {
+    position: absolute;
+    display: flex;
+    color: var(--color-light-pink);
+    font-size: 20px;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    margin-top: 5px;
+}

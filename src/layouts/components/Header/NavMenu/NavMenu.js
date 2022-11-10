@@ -1,21 +1,20 @@
 import React, { useState, useEffect, useContext, memo } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { ThemeContext } from '../../../../App';
 import * as Service from '~/services/NavModuleService';
 import classNames from 'classnames/bind';
 import styles from './NavMenu.module.scss';
-
 const cx = classNames.bind(styles);
 
 function NavMenu() {
-    const { themeColor } = useContext(ThemeContext);
+    const { themeColor, isSmallSize, setAnchorEl } = useContext(ThemeContext);
     const [navList, setNavList] = useState([]);
     const [error, setError] = useState(null);
     const [active, setActive] = useState('Home');
 
     useEffect(() => {
         getNavModule();
-    }, []);
+    }, [themeColor]);
 
     const getNavModule = async () => {
         try {
@@ -34,8 +33,18 @@ function NavMenu() {
         }
     };
 
+    function onClickAcTive(item) {
+        setActive(item.name);
+        setAnchorEl(null);
+    }
+
     return (
-        <div className={cx('wrapper', !themeColor ? 'wrapper-has-color' : '')}>
+        <div
+            className={cx(
+                'wrapper',
+                !themeColor ? 'wrapper-has-color' : '',
+                isSmallSize ? 'isSmallSize' : '',
+            )}>
             {navList.length > 0
                 ? navList.map((item, index) => (
                       <aside
@@ -52,7 +61,7 @@ function NavMenu() {
                                       : '',
                                   paddingBottom: isActive ? '4px' : '',
                               })}
-                              onClick={() => setActive(item.name)}>
+                              onClick={(item) => onClickAcTive()}>
                               {item.name}
                           </NavLink>
                       </aside>
@@ -61,5 +70,4 @@ function NavMenu() {
         </div>
     );
 }
-
 export default memo(NavMenu);

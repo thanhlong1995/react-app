@@ -1,70 +1,56 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useContext, memo } from 'react';
 import classNames from 'classnames/bind';
 import styles from '../ContentTabGetStart.module.scss';
 import Form from '~/components/UI/Form';
 import WrapperPopper from '~/components/UI/Popper/WrapperPopper';
 import * as Service from '~/services/DocReactService';
+import Input from '~/components/UI/Input';
+import FormatDate from '~/components/UI/FormatDate';
+import { ThemeContext } from '~/Pages/Admin/Admin';
 
 const cx = classNames.bind(styles);
 
 function Popper(props) {
-    const iconRef = useRef('');
     const titleRef = useRef('');
     const descriptionRef = useRef('');
-    const dataRef = useRef('');
-    const createDateRef = useRef('');
-    const creatorRef = useRef('');
+    const contentRef = useRef('');
+    const [img, setImage] = useState('');
+    const [isloading, setIsLoading] = useState(false);
+    const { handleReload } = useContext(ThemeContext);
 
-    const [listInputFrom, setListInputForm] = useState([
-        {
-            input: iconRef,
-            name: 'Icon',
-        },
-        {
-            input: titleRef,
-            name: 'Title',
-        },
-        {
-            input: descriptionRef,
-            name: 'Description',
-        },
-        {
-            input: dataRef,
-            name: 'Data',
-        },
-        {
-            input: createDateRef,
-            name: 'CreateDate',
-        },
-        {
-            input: creatorRef,
-            name: 'Creator',
-        }
-    ])
+    var today = new Date();
+    const createDate = FormatDate(today);
+    const userName = 'LongNT';
+    const icon = '</>';
 
     async function submitHandler(event) {
         event.preventDefault();
-console.log(event)
         const item = {
-                icon: iconRef.current.value,
-                title: titleRef.current.value,
-                description: descriptionRef.current.value,
-                data: dataRef.current.value,
-                createDate: createDateRef.current.value,
-                creator: creatorRef.current.value
+            title: titleRef.current.value,
+            description: descriptionRef.current.value,
+            content: contentRef.current.value,
+            image: img,
+            create_date: createDate,
+            update_date: '',
+            icon: icon,
+            creator: userName,
         };
-        console.log('iconRef.current.value ' + iconRef.current.value)
         await Service.post(item);
-        
-        iconRef.current.value = '';
+        setIsLoading(!isloading);
+        props.setAnchorEl(null);
+        handleReload(!isloading);
         titleRef.current.value = '';
         descriptionRef.current.value = '';
-        dataRef.current.value = '';
-        createDateRef.current.value = '';
-        creatorRef.current.valu = '';
+        contentRef.current.value = '';
     }
 
+    const handleClosePopper = () => {
+        props.setAnchorEl(null);
+    };
 
+    const handleSetImage = (e) => {
+        setImage(e);
+    };
     return (
         <WrapperPopper
             id={props.id}
@@ -73,13 +59,28 @@ console.log(event)
             className={cx('wrap-popper')}>
             <div className={cx('main-popper')}>
                 <Form
-                    listInputFrom={listInputFrom}
                     submitHandler={submitHandler}
-                    handleClosePopper={props.handleClosePopper}
-                />
+                    handleClosePopper={handleClosePopper}>
+                    <Input inputRef={titleRef} name="Title" type="text" />
+                    <Input
+                        inputRef={descriptionRef}
+                        name="Description"
+                        type="textarea"
+                    />
+                    <Input
+                        inputRef={contentRef}
+                        name="Content"
+                        type="textarea"
+                    />
+                    <Input
+                        name="Image"
+                        type="file"
+                        handleSetImage={handleSetImage}
+                    />
+                </Form>
             </div>
         </WrapperPopper>
     );
 }
 
-export default Popper;
+export default memo(Popper);

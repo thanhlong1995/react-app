@@ -26,11 +26,43 @@
     color: #fff;
     height: 100%;
 }
+.main-header-link-icon {
+    margin-right: 10px;
+    display: flex;
+    height: 24px;
+    width: 24px;
+    border-radius: 2px;
+    background: #fff;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    &:hover {
+        border: 1px solid var(--color-light-pink);
+    }
+}
+
 .main-header-action {
     max-width: 200px;
     width: 200px;
     display: flex;
     justify-content: flex-start;
+}
+.nav-menu-small-size {
+    width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column !important;
+    align-items: center;
+    justify-content: flex-start;
+}
+.main-header-small-size-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: absolute;
+    top: 50px;
+    left: 20px;
 }
 .main-header-share {
     max-width: 200px;
