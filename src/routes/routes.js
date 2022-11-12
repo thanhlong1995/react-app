@@ -15,7 +15,7 @@ const publicLayout = [
     { path: config.routes.advance, conponent: Advance, header: 'display' },
     { path: config.routes.api, conponent: API, header: 'display' },
     { path: config.routes.login, conponent: Login, header: 'none' },
-    { path: config.routes.sigup, conponent: SignUp, header: 'none' },
+    { path: config.routes.signup, conponent: SignUp, header: 'none' },
     { path: config.routes.getstart, conponent: GetStart, header: 'display' },
     { path: config.routes.resources, conponent: Resource, header: 'display' },
 ];

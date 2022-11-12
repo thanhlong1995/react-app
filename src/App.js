@@ -51,68 +51,67 @@ function App() {
     }, [windowDimensions.width]);
 
     return (
-        <ThemeContext.Provider
-            value={{
-                themeColor,
-                setThemeColor,
-                isSmallSize,
-                currentUser,
-                timeActive,
-                setTimeActive,
-            }}>
-            <Router>
-                <div className="App">
-                    <Routes>
-                        {publicLayout.map((route, index) => {
-                            const Page = route.conponent;
-                            let Layout = DefaultLayout;
-                            if (route.layout) {
-                                Layout = route.layout;
-                            } else if (route.layout === null) {
-                                Layout = Fragment;
-                            }
-                            return (
-                                <Route
-                                    path={route.path}
-                                    element={
-                                        <Layout
-                                            Page={route.path}
-                                            Header={route.header}>
-                                            <Page />
-                                        </Layout>
-                                    }
-                                    key={index}
-                                />
-                            );
-                        })}
-                        {privateLayout.map((route, index) => {
-                            const Page = route.conponent;
-                            let Layout = DefaultLayout;
-                            if (route.layout) {
-                                Layout = route.layout;
-                            } else if (route.layout === null) {
-                                Layout = Fragment;
-                            }
-                            return (
-                                <Route
-                                    path={route.path}
-                                    element={
-                                        <Layout
-                                            Page={route.path}
-                                            Header={route.header}>
-                                            <PrivateRoute>
+        <AuthProvider value={(currentUser, timeActive, setTimeActive)}>
+            <ThemeContext.Provider
+                value={{
+                    themeColor,
+                    setThemeColor,
+                    isSmallSize,
+                }}>
+                <Router>
+                    <div className="App">
+                        <Routes>
+                            {publicLayout.map((route, index) => {
+                                const Page = route.conponent;
+                                let Layout = DefaultLayout;
+                                if (route.layout) {
+                                    Layout = route.layout;
+                                } else if (route.layout === null) {
+                                    Layout = Fragment;
+                                }
+                                return (
+                                    <Route
+                                        path={route.path}
+                                        element={
+                                            <Layout
+                                                Page={route.path}
+                                                Header={route.header}>
                                                 <Page />
-                                            </PrivateRoute>
-                                        </Layout>
-                                    }
-                                    key={index}
-                                />
-                            );
-                        })}
-                    </Routes>
-                </div>
-            </Router>
-        </ThemeContext.Provider>
+                                            </Layout>
+                                        }
+                                        key={index}
+                                    />
+                                );
+                            })}
+                            {privateLayout.map((route, index) => {
+                                const Page = route.conponent;
+                                let Layout = DefaultLayout;
+                                if (route.layout) {
+                                    Layout = route.layout;
+                                } else if (route.layout === null) {
+                                    Layout = Fragment;
+                                }
+                                return (
+                                    <Route
+                                        path={route.path}
+                                        element={
+                                            <Layout
+                                                Page={route.path}
+                                                header={route.header}>
+                                                <PrivateRoute>
+                                                    <Page />
+                                                </PrivateRoute>
+                                            </Layout>
+                                        }
+                                        key={index}
+                                    />
+                                );
+                            })}
+                        </Routes>
+                    </div>
+                </Router>
+            </ThemeContext.Provider>
+        </AuthProvider>
     );
 }
 export const ThemeContext = createContext();

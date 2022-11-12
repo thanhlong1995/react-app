@@ -6,24 +6,29 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    color: #000;
 }
-.login {
-    width: 70vh;
+.form {
+    min-width: 70vh;
     min-height: 10vh;
     padding: 5rem;
     background: white;
     box-shadow: 0 2px 8px rgb(0 0 0 / 26%);
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1;
 }
 .control {
-    margin: 1rem 0;
+    margin: 3rem 0;
     display: flex;
-    align-items: stretch;
-    flex-direction: column;
     width: 100%;
+    align-items: center;
 }
-
+.title-form {
+    color: var(--color-primary);
+}
 .control label,
 .control input {
     display: block;
@@ -62,7 +67,7 @@
 }
 
 .actions {
-    margin-top: 1.5rem;
+    margin-top: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,7 +84,7 @@
 }
 
 .actions .toggle {
-    margin-top: 1rem;
+    margin-top: 2rem;
     background-color: transparent;
     color: #9f5ccc;
     border: none;
@@ -91,7 +96,7 @@
     color: #ae82cc;
 }
 
-.div-error {
+.auth__error {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -102,4 +107,7 @@
         align-items: center;
         flex-direction: row;
     }
+}
+.register-link {
+    margin-top: 2rem;
 }
