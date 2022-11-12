@@ -1,4 +1,11 @@
-import React, { useState, useEffect, useContext, createContext } from 'react';
+import React, {
+    useState,
+    useEffect,
+    useContext,
+    useCallback,
+    useRef,
+    createContext,
+} from 'react';
 import { ThemeContext } from '../../../App';
 import classNames from 'classnames/bind';
 import style from './Header.module.scss';
@@ -13,24 +20,20 @@ const cx = classNames.bind(style);
 
 const Header = (props) => {
     const { themeColor, isSmallSize } = useContext(ThemeContext);
-    const [isShowMenu, setIsShowMenu] = useState(false);
-    const [isEvent, setIsEvent] = useState();
-
     const [anchorEl, setAnchorEl] = useState(null);
-    const open = Boolean(anchorEl);
-    const id = open ? 'wrap-popper' : undefined;
-
-    const hanldleLogout = () => {};
+    const [isOpen, setIsOpen] = useState(false);
 
     const handleShowMenuPopper = (event) => {
-        setIsShowMenu(true);
-        setIsEvent(event.currentTarget);
+        setIsOpen((prev) => !prev);
+        setAnchorEl(event.currentTarget);
+    };
+    const open = Boolean(anchorEl);
+
+    const clickAwayHandler = () => {
+        setIsOpen(false);
     };
 
-    useEffect(() => {
-        setAnchorEl(anchorEl ? null : isEvent);
-    }, [isEvent, isShowMenu]);
-
+    const hanldleLogout = () => {};
     return (
         <header
             className={cx(
@@ -44,11 +47,11 @@ const Header = (props) => {
                             className={cx('main-header-link-icon')}
                             onClick={handleShowMenuPopper}>
                             <MenuIcon />
-                            {isShowMenu && (
+                            {isOpen && (
                                 <WrapperPopper
-                                    id={id}
                                     open={open}
-                                    anchorEl={anchorEl}>
+                                    anchorEl={anchorEl}
+                                    clickAwayHandler={clickAwayHandler}>
                                     <div
                                         className={cx(
                                             'main-header-small-size-link',

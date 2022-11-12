@@ -1,4 +1,4 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState, useCallback, createContext } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Admin.module.scss';
 import Tabs from '@mui/material/Tabs';
@@ -29,11 +29,13 @@ function Admin() {
     const [reload, setReload] = useState(false);
     const [value, setValue] = useState(0);
     const [marginLeft, setMarginLeft] = useState(320);
+    const [isActive, setIsActive] = useState(false);
 
-    const handleChange = (event, newValue) => {
+    const handleChange = useCallback((event, newValue) => {
         setValue(newValue);
         setMarginLeft(event.target.clientWidth + 70);
-    };
+        setIsActive(!isActive);
+    }, []);
 
     function a11yProps(index) {
         return {
@@ -66,7 +68,19 @@ function Admin() {
                                             aria-label="basic tabs example">
                                             {menu.map((item, index) => (
                                                 <Tab
-                                                    className={cx('list-tab')}
+                                                    className={cx(
+                                                        'list-tab',
+                                                        isActive
+                                                            ? 'is-active'
+                                                            : '',
+                                                    )}
+                                                    ref={(node) =>
+                                                        node?.style.setProperty(
+                                                            'align-items',
+                                                            'flex-start',
+                                                            'important',
+                                                        )
+                                                    }
                                                     label={item.name}
                                                     key={index}
                                                     {...a11yProps(index)}

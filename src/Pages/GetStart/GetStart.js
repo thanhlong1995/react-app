@@ -6,7 +6,7 @@ import DataDocReact from './GetDocReact';
 const cx = classNames.bind(styles);
 
 function GetStart() {
-    const listMenu = true;
+    const isMenu = true;
     return (
         <div className={cx('wrapper')}>
             <div className={cx('title-getstart-page')}>
@@ -23,7 +23,7 @@ function GetStart() {
                                 <h4 className={cx('typography')}>Menu</h4>
                             </div>
                             <div className={cx('menu-list')}>
-                                <DataDocReact listMenu={listMenu} />
+                                <DataDocReact isMenu={isMenu} />
                             </div>
                         </div>
                     </aside>

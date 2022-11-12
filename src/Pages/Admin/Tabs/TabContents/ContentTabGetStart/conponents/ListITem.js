@@ -7,6 +7,7 @@ import Button from '~/components/UI/Button';
 import { ThemeContext } from '~/Pages/Admin/Admin';
 import { ThemeTabPanel } from '~/Pages/Admin/Tabs/TabPanel/TabPanel';
 import { NOT_DATA } from '~/components/UI/Constant/Constant';
+import Fetcher from '~/API/GetStartDoc/Fetcher';
 
 const cx = classNames.bind(styles);
 

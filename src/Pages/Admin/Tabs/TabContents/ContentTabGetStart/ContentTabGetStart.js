@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, memo } from 'react';
 import classNames from 'classnames/bind';
 import styles from './ContentTabGetStart.module.scss';
 import ListITem from './conponents/ListITem';
@@ -14,4 +14,4 @@ function ContentTabGetStart() {
     );
 }
 
-export default ContentTabGetStart;
+export default memo(ContentTabGetStart);

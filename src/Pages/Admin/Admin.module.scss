@@ -52,6 +52,9 @@
     color: #fff !important;
     width: 200px !important;
 }
+.is-active {
+    color: var(--color-link);
+}
 .main-content {
     width: 100%;
     padding: 20px 50px;

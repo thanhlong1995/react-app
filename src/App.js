@@ -3,10 +3,21 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicLayout } from '~/routes';
 import DefaultLayout from '~/layouts/DefaultLayout';
 import { Fragment } from 'react';
-
+import { auth } from 'firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { AuthProvider } from '~/Auth./AuthContext';
 function App() {
     const [themeColor, setThemeColor] = useState(true);
     const [isSmallSize, setIsSmallSize] = useState(false);
+
+    const [currentUser, setCurrentUser] = useState(null);
+    const [timeActive, setTimeActive] = useState(false);
+
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            setCurrentUser(user);
+        });
+    }, []);
 
     useEffect(() => {
         function handleResize() {
@@ -43,6 +54,26 @@ function App() {
             <Router>
                 <div className="App">
                     <Routes>
+                        {publicLayout.map((route, index) => {
+                            const Page = route.conponent;
+                            let Layout = DefaultLayout;
+                            if (route.layout) {
+                                Layout = route.layout;
+                            } else if (route.layout === null) {
+                                Layout = Fragment;
+                            }
+                            return (
+                                <Route
+                                    path={route.path}
+                                    element={
+                                        <Layout Page={route.path}>
+                                            <Page />
+                                        </Layout>
+                                    }
+                                    key={index}
+                                />
+                            );
+                        })}
                         {publicLayout.map((route, index) => {
                             const Page = route.conponent;
                             let Layout = DefaultLayout;

@@ -40,12 +40,12 @@
         border: 1px solid var(--color-light-pink);
     }
 }
-
 .main-header-action {
     max-width: 200px;
     width: 200px;
     display: flex;
     justify-content: flex-start;
+    align-items: center;
 }
 .nav-menu-small-size {
     width: 250px;
