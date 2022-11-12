@@ -11,14 +11,16 @@ import Login from '~/Auth/Login';
 import SignUp from '~/Auth/SignUp';
 
 const publicLayout = [
-    { path: config.routes.home, conponent: Home },
-    { path: config.routes.advance, conponent: Advance },
-    { path: config.routes.api, conponent: API },
-    { path: config.routes.admin, conponent: Login },
-    { path: config.routes.admin, conponent: SignUp },
-    { path: config.routes.getstart, conponent: GetStart },
-    { path: config.routes.resources, conponent: Resource },
+    { path: config.routes.home, conponent: Home, header: 'display' },
+    { path: config.routes.advance, conponent: Advance, header: 'display' },
+    { path: config.routes.api, conponent: API, header: 'display' },
+    { path: config.routes.login, conponent: Login, header: 'none' },
+    { path: config.routes.sigup, conponent: SignUp, header: 'none' },
+    { path: config.routes.getstart, conponent: GetStart, header: 'display' },
+    { path: config.routes.resources, conponent: Resource, header: 'display' },
 ];
-const privateLayout = [{ path: config.routes.admin, conponent: Admin }];
+const privateLayout = [
+    { path: config.routes.admin, conponent: Admin, header: 'display' },
+];
 
 export { publicLayout, privateLayout };

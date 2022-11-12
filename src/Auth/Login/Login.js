@@ -48,40 +48,42 @@ const Login = (props) => {
         }
     };
     return (
-        <div className={cx('login')}>
-            <form onSubmit={submitHandler}>
-                <div className={cx('control')}>
-                    <label htmlFor="email">E-Mail</label>
-                    <input
-                        type="email"
-                        id="email"
-                        required
-                        ref={emailInputRef}
-                    />
-                </div>
-                <div className={cx('control')}>
-                    <label htmlFor="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        required
-                        ref={passwordInputRef}
-                    />
-                </div>
-                <div className={cx('actions')}>
-                    <button type="submit">
-                        {isLogin ? 'Login' : 'Create Account'}
-                    </button>
-                    <button
-                        type="submit"
-                        className={cx('toggle')}
-                        onClick={switchAuthModeHandler}>
-                        {isLogin
-                            ? 'Create new account'
-                            : 'Login with existing account'}
-                    </button>
-                </div>
-            </form>
+        <div className={cx('wrapper')}>
+            <div className={cx('login')}>
+                <form onSubmit={submitHandler}>
+                    <div className={cx('control')}>
+                        <label htmlFor="email">E-Mail</label>
+                        <input
+                            type="email"
+                            id="email"
+                            required
+                            ref={emailInputRef}
+                        />
+                    </div>
+                    <div className={cx('control')}>
+                        <label htmlFor="password">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            required
+                            ref={passwordInputRef}
+                        />
+                    </div>
+                    <div className={cx('actions')}>
+                        <button type="submit">
+                            {isLogin ? 'Login' : 'Create Account'}
+                        </button>
+                        <button
+                            type="submit"
+                            className={cx('toggle')}
+                            onClick={switchAuthModeHandler}>
+                            {isLogin
+                                ? 'Create new account'
+                                : 'Login with existing account'}
+                        </button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 };

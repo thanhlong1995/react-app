@@ -6,17 +6,17 @@ import { ThemeContext } from '../../App';
 
 const cx = classNames.bind(styles);
 
-function DefaultLayout({ Page, children }) {
+function DefaultLayout(props) {
     const { themeColor } = useContext(ThemeContext);
     return (
         <div className={cx('main')}>
-            <Header Page={Page} />
+            {props.Header === 'none' ? '' : <Header Page={props.Page} />}
             <div
                 className={cx(
                     'container',
                     !themeColor ? 'has-theme-color' : '',
                 )}>
-                <div className="content">{children}</div>
+                <div className="content">{props.children}</div>
             </div>
         </div>
     );

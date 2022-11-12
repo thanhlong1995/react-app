@@ -1,5 +1,5 @@
 import { Navigate } from 'react-router-dom';
-import { useAuthValue } from './AuthContext';
+import { useAuthValue } from '~/Auth/AuthContext/AuthContext';
 
 export default function PrivateRoute({ children }) {
     const { currentUser } = useAuthValue();

@@ -1,11 +1,13 @@
 import React, { useState, useEffect, createContext } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { publicLayout } from '~/routes';
+import { publicLayout, privateLayout } from '~/routes';
 import DefaultLayout from '~/layouts/DefaultLayout';
 import { Fragment } from 'react';
-import { auth } from 'firebase';
+import { auth } from './firebase';
 import { onAuthStateChanged } from 'firebase/auth';
-import { AuthProvider } from '~/Auth./AuthContext';
+import { AuthProvider } from '~/Auth/AuthContext/AuthContext';
+import PrivateRoute from '~/routes/PrivateRoute';
+
 function App() {
     const [themeColor, setThemeColor] = useState(true);
     const [isSmallSize, setIsSmallSize] = useState(false);
@@ -50,7 +52,14 @@ function App() {
 
     return (
         <ThemeContext.Provider
-            value={{ themeColor, setThemeColor, isSmallSize }}>
+            value={{
+                themeColor,
+                setThemeColor,
+                isSmallSize,
+                currentUser,
+                timeActive,
+                setTimeActive,
+            }}>
             <Router>
                 <div className="App">
                     <Routes>
@@ -66,7 +75,9 @@ function App() {
                                 <Route
                                     path={route.path}
                                     element={
-                                        <Layout Page={route.path}>
+                                        <Layout
+                                            Page={route.path}
+                                            Header={route.header}>
                                             <Page />
                                         </Layout>
                                     }
@@ -74,7 +85,7 @@ function App() {
                                 />
                             );
                         })}
-                        {publicLayout.map((route, index) => {
+                        {privateLayout.map((route, index) => {
                             const Page = route.conponent;
                             let Layout = DefaultLayout;
                             if (route.layout) {
@@ -86,8 +97,12 @@ function App() {
                                 <Route
                                     path={route.path}
                                     element={
-                                        <Layout Page={route.path}>
-                                            <Page />
+                                        <Layout
+                                            Page={route.path}
+                                            Header={route.header}>
+                                            <PrivateRoute>
+                                                <Page />
+                                            </PrivateRoute>
                                         </Layout>
                                     }
                                     key={index}

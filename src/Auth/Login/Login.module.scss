@@ -1,18 +1,27 @@
-.login {
+.wrapper {
     width: 100%;
-    max-width: 60rem;
-    margin: 20rem auto;
     padding: 5rem;
     background: white;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
-    border-radius: 10px;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
-
+.login {
+    width: 70vh;
+    min-height: 10vh;
+    padding: 5rem;
+    background: white;
+    box-shadow: 0 2px 8px rgb(0 0 0 / 26%);
+    border-radius: 10px;
+    display: flex;
+}
 .control {
     margin: 1rem 0;
     display: flex;
     align-items: stretch;
     flex-direction: column;
+    width: 100%;
 }
 
 .control label,
@@ -25,6 +34,7 @@
     flex: 1;
     color: #464646;
     margin-bottom: 0.5rem;
+    min-width: 100px;
 }
 
 .control input {
@@ -33,6 +43,7 @@
     padding: 0.35rem 0.35rem;
     border-radius: 6px;
     border: 1px solid #ccc;
+    width: 400px;
 }
 
 .control input:focus {
