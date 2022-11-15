@@ -1,17 +1,17 @@
 .wrapper {
     width: 100%;
-    padding: 5rem;
+    padding-top: 10rem;
     background: white;
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     color: #000;
 }
 .form {
     min-width: 70vh;
     min-height: 10vh;
-    padding: 5rem;
+    padding: 1rem 1rem 3rem 1rem;
     background: white;
     box-shadow: 0 2px 8px rgb(0 0 0 / 26%);
     border-radius: 10px;
@@ -21,7 +21,7 @@
     line-height: 1;
 }
 .control {
-    margin: 3rem 0;
+    margin: 1.5rem 0;
     display: flex;
     width: 100%;
     align-items: center;
@@ -67,20 +67,22 @@
 }
 
 .actions {
-    margin-top: 5rem;
+    margin-top: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.actions button {
-    cursor: pointer;
-    font: inherit;
-    color: white;
-    background-color: #9f5ccc;
-    border: 1px solid #9f5ccc;
-    border-radius: 4px;
-    padding: 0.5rem 2.5rem;
+.actions .btn-signin {
+    padding: 9px 25px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    background-color: var(--color-light-blue);
+    &:hover {
+        border: 1px solid var(--color-light-pink);
+        opacity: 0.8;
+    }
 }
 
 .actions .toggle {
@@ -110,4 +112,39 @@
 }
 .register-link {
     margin-top: 2rem;
+    display: flex;
+    width: max-content;
+}
+.link {
+    color: var(--color-link);
+}
+.comment {
+    display: flex;
+}
+.social-media-login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.social-media-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.social-media-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-width: 280px;
+}
+.btn-signin {
+    min-width: 270px;
+    margin: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

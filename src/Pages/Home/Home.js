@@ -2,14 +2,14 @@ import React, { useState, useEffect, useContext } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Home.module.scss';
 import Button from '~/components/UI/Button';
-import { ThemeContext } from '../../App';
+import { useAppProvider } from '~/Context/AppProvider/AppProvider';
 import Videos from '~/assets/videos';
 import Video from '~/components/UI/Video';
 
 const cx = classNames.bind(styles);
 
 const Home = (props) => {
-    const { themeColor } = useContext(ThemeContext);
+    const valueProvider = useAppProvider();
     const handleOnclickDemo = () => {};
     const handleOnclickGetStart = () => {};
 
@@ -26,7 +26,7 @@ const Home = (props) => {
                 <Button
                     className={cx(
                         'button',
-                        !themeColor ? '' : 'not-theme-color',
+                        !valueProvider?.themeColor ? '' : 'not-theme-color',
                     )}
                     onClick={handleOnclickDemo}
                     primary>
@@ -35,7 +35,7 @@ const Home = (props) => {
                 <Button
                     className={cx(
                         'button',
-                        !themeColor ? '' : 'not-theme-color',
+                        !valueProvider?.themeColor ? '' : 'not-theme-color',
                     )}
                     onClick={handleOnclickGetStart}
                     primary>

@@ -1,4 +1,4 @@
-import { useState, useCallback, createContext } from 'react';
+import { useState, useCallback } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Admin.module.scss';
 import Tabs from '@mui/material/Tabs';
@@ -12,8 +12,6 @@ import ContentTabAPI from './Tabs/TabContents/ContentTabAPI';
 import ContentTabAdvance from './Tabs/TabContents/ContentTabAdvance';
 import ContentTabResource from './Tabs/TabContents/ContentTabResource';
 
-export const ThemeContext = createContext();
-
 const cx = classNames.bind(styles);
 
 const menu = [
@@ -26,7 +24,6 @@ const menu = [
 ];
 
 function Admin() {
-    const [reload, setReload] = useState(false);
     const [value, setValue] = useState(0);
     const [marginLeft, setMarginLeft] = useState(320);
     const [isActive, setIsActive] = useState(false);
@@ -44,72 +41,62 @@ function Admin() {
         };
     }
 
-    const handleReload = (e) => {
-        setReload(e);
-    };
-
     return (
-        <ThemeContext.Provider value={{ reload, handleReload }}>
-            <div className={cx('wrapper')}>
-                <div className={cx('main')}>
-                    <Box sx={{ flexGrow: 2, display: 'flex', width: '100%' }}>
-                        <div className={cx('div-module-menu')}>
-                            <div className={cx('module-menu')}>
-                                <div className={cx('div-menu')}>
-                                    <h2 className={cx('menu-title')}>
-                                        Dashboard
-                                    </h2>
-                                    <div className={cx('menu-content')}>
-                                        <Tabs
-                                            variant="scrollable"
-                                            orientation="vertical"
-                                            value={value}
-                                            onChange={handleChange}
-                                            aria-label="basic tabs example">
-                                            {menu.map((item, index) => (
-                                                <Tab
-                                                    className={cx(
-                                                        'list-tab',
-                                                        isActive
-                                                            ? 'is-active'
-                                                            : '',
-                                                    )}
-                                                    ref={(node) =>
-                                                        node?.style.setProperty(
-                                                            'align-items',
-                                                            'flex-start',
-                                                            'important',
-                                                        )
-                                                    }
-                                                    label={item.name}
-                                                    key={index}
-                                                    {...a11yProps(index)}
-                                                />
-                                            ))}
-                                        </Tabs>
-                                    </div>
+        <div className={cx('wrapper')}>
+            <div className={cx('main')}>
+                <Box sx={{ flexGrow: 2, display: 'flex', width: '100%' }}>
+                    <div className={cx('div-module-menu')}>
+                        <div className={cx('module-menu')}>
+                            <div className={cx('div-menu')}>
+                                <h2 className={cx('menu-title')}>Dashboard</h2>
+                                <div className={cx('menu-content')}>
+                                    <Tabs
+                                        variant="scrollable"
+                                        orientation="vertical"
+                                        value={value}
+                                        onChange={handleChange}
+                                        aria-label="basic tabs example">
+                                        {menu.map((item, index) => (
+                                            <Tab
+                                                className={cx(
+                                                    'list-tab',
+                                                    isActive ? 'is-active' : '',
+                                                )}
+                                                ref={(node) =>
+                                                    node?.style.setProperty(
+                                                        'align-items',
+                                                        'flex-start',
+                                                        'important',
+                                                    )
+                                                }
+                                                label={item.name}
+                                                key={index}
+                                                {...a11yProps(index)}
+                                            />
+                                        ))}
+                                    </Tabs>
                                 </div>
                             </div>
                         </div>
-                        <div
-                            className={cx('main-content')}
-                            style={{ marginLeft: marginLeft }}>
-                            <div className={cx('content')}>
-                                {menu.map((item, index) => (
-                                    <TabPanel
-                                        title={item.name}
-                                        key={index}
-                                        value={value}
-                                        index={index}>
-                                        {item.conponent}
-                                    </TabPanel>
-                                ))}
-                            </div>
+                    </div>
+                    <div
+                        className={cx('main-content')}
+                        style={{ marginLeft: marginLeft }}>
+                        <div className={cx('content')}>
+                            {menu.map((item, index) => (
+                                <TabPanel
+                                    title={item.name}
+                                    key={index}
+                                    value={value}
+                                    index={index}>
+                                    {item.conponent}
+                                </TabPanel>
+                            ))}
                         </div>
-                    </Box>
-                </div>
+                    </div>
+                </Box>
             </div>
-        </ThemeContext.Provider>
+        </div>
     );
 }
 export default Admin;

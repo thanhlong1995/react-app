@@ -6,7 +6,6 @@ import WrapperPopper from '~/components/UI/Popper/WrapperPopper';
 import * as Service from '~/services/DocReactService';
 import Input from '~/components/UI/Input';
 import FormatDate from '~/components/UI/FormatDate';
-import { ThemeContext } from '~/Pages/Admin/Admin';
 
 const cx = classNames.bind(styles);
 
@@ -16,7 +15,6 @@ function Popper(props) {
     const contentRef = useRef('');
     const [img, setImage] = useState('');
     const [isloading, setIsLoading] = useState(false);
-    const { handleReload } = useContext(ThemeContext);
 
     var today = new Date();
     const createDate = FormatDate(today);
@@ -38,7 +36,6 @@ function Popper(props) {
         await Service.post(item);
         setIsLoading(!isloading);
         props.setAnchorEl(null);
-        handleReload(!isloading);
         titleRef.current.value = '';
         descriptionRef.current.value = '';
         contentRef.current.value = '';

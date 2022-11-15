@@ -1,11 +1,9 @@
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 import Box from '@mui/material/Box';
 import classNames from 'classnames/bind';
 import styles from './TabPanel.module.scss';
 import Button from '~/components/UI/Button';
 import Popper from '../TabContents/ContentTabGetStart/conponents/Popper';
-import { ThemeContext } from '~/Pages/Admin/Admin';
-import * as Service from '~/services/DocReactService';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -17,7 +15,6 @@ function TabPanel(props) {
     const open = Boolean(anchorEl);
     const id = open ? 'wrap-popper' : undefined;
     const [isloading, setIsLoading] = useState(false);
-    const { handleReload } = useContext(ThemeContext);
     const [hasChecked, setHasChecked] = useState(false);
     const [countItem, setCountItem] = useState(0);
     const [valueItemChecked, setValueItemChecked] = useState([]);
@@ -28,7 +25,6 @@ function TabPanel(props) {
     const handleDelete = (e) => {
         //await Service.deleteId(e);
         setIsLoading(!isloading);
-        handleReload(!isloading);
         setCountItem(0);
         setValueItemChecked([]);
     };

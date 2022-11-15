@@ -4,18 +4,14 @@ import * as Service from '~/services/DocReactService';
 import styles from '../ContentTabGetStart.module.scss';
 import Table from '~/components/UI/Table';
 import Button from '~/components/UI/Button';
-import { ThemeContext } from '~/Pages/Admin/Admin';
 import { ThemeTabPanel } from '~/Pages/Admin/Tabs/TabPanel/TabPanel';
 import { NOT_DATA } from '~/components/UI/Constant/Constant';
-import Fetcher from '~/API/GetStartDoc/Fetcher';
 
 const cx = classNames.bind(styles);
 
 function ListItem() {
     const [listTbody, setListBody] = useState([]);
     const [listThead, setListThead] = useState([]);
-
-    const { reload } = useContext(ThemeContext);
     const { setHasChecked, countItem, setCountItem } =
         useContext(ThemeTabPanel);
 
@@ -41,7 +37,7 @@ function ListItem() {
             } catch (error) {}
         };
         fetchPutApi();
-    }, [reload]);
+    }, []);
 
     useEffect(() => {
         countItem > 0 ? setHasChecked(true) : setHasChecked(false);

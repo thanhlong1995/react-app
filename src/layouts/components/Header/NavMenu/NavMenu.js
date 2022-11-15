@@ -1,6 +1,6 @@
 import React, { useState, useContext, useCallback, memo } from 'react';
 import { NavLink } from 'react-router-dom';
-import { ThemeContext } from '../../../../App';
+import { useAppProvider } from '~/Context/AppProvider/AppProvider';
 import classNames from 'classnames/bind';
 import styles from './NavMenu.module.scss';
 import Fetcher from '~/API/Header/Fetcher';
@@ -8,10 +8,10 @@ import Fetcher from '~/API/Header/Fetcher';
 const cx = classNames.bind(styles);
 
 function NavMenu() {
-    const { themeColor, isSmallSize } = useContext(ThemeContext);
+    const valueProvider = useAppProvider();
     const [active, setActive] = useState('Home');
 
-    const onClickAcTive = useCallback(async (item) => {
+    const onClickAcTive = useCallback((item) => {
         setActive(item);
     }, []);
 
@@ -25,8 +25,10 @@ function NavMenu() {
                     <div
                         className={cx(
                             'wrapper',
-                            !themeColor ? 'wrapper-has-color' : '',
-                            isSmallSize ? 'isSmallSize' : '',
+                            !valueProvider?.themeColor
+                                ? 'wrapper-has-color'
+                                : '',
+                            valueProvider?.isSmallSize ? 'isSmallSize' : '',
                         )}>
                         {listMenu.length > 0
                             ? listMenu.map((item, index) => (

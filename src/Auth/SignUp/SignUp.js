@@ -1,28 +1,39 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import classnames from 'classnames/bind';
-import styles from './SignUp.module.scss';
 import {
     createUserWithEmailAndPassword,
     sendEmailVerification,
 } from 'firebase/auth';
 import { useAuthValue } from '~/Auth/AuthContext/AuthContext';
-import { auth } from '~/firebase';
+import { auth } from '~/firebase/config';
+import config from '~/config/';
+import styles from './SignUp.module.scss';
+import Input from '~/components/UI/Input';
+import Button from '~/components/UI/Button';
 
 const cx = classnames.bind(styles);
 
 const SignUp = (props) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [password, setPassword] = useState('');
+    // const [confirmPassword, setConfirmPassword] = useState('');
+
+    const email = useRef('');
+    const password = useRef('');
+    const confirmPassword = useRef('');
+
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const { setTimeActive } = useAuthValue();
+    const useAuthProvider = useAuthValue();
 
     const validatePassword = () => {
         let isValid = true;
-        if (password !== '' && confirmPassword !== '') {
-            if (password !== confirmPassword) {
+        if (
+            password.current.value !== '' &&
+            confirmPassword.current.value !== ''
+        ) {
+            if (password.current.value !== confirmPassword.current.value) {
                 isValid = false;
                 setError('Passwords does not match');
             }
@@ -35,21 +46,21 @@ const SignUp = (props) => {
         setError('');
         if (validatePassword()) {
             // Create a new user with email and password using firebase
-            createUserWithEmailAndPassword(auth, email, password)
+            createUserWithEmailAndPassword(
+                auth,
+                email.current.value,
+                password.current.value,
+            )
                 .then(() => {
                     sendEmailVerification(auth.currentUser)
                         .then(() => {
-                            setTimeActive(true);
-                            navigate('/verify-email');
-                            console.log('create ok');
+                            useAuthProvider?.setTimeActive(true);
+                            navigate(config.routes.login);
                         })
                         .catch((err) => alert(err.message));
                 })
                 .catch((err) => setError(err.message));
         }
-        setEmail('');
-        setPassword('');
-        setConfirmPassword('');
     };
 
     return (
@@ -59,45 +70,47 @@ const SignUp = (props) => {
                 {error && <div className={cx('auth__error')}>{error}</div>}
                 <form onSubmit={register}>
                     <div className={cx('control')}>
-                        <label htmlFor="email">E-Mail</label>
-                        <input
+                        <Input
                             type="email"
                             id="email"
-                            value={email}
+                            name="email"
                             required
+                            flexDerection={true}
                             placeholder="Enter your email"
-                            onChange={(e) => setEmail(e.target.value)}
+                            inputRef={email}
                         />
                     </div>
                     <div className={cx('control')}>
-                        <label htmlFor="password">Password</label>
-                        <input
+                        <Input
                             type="password"
                             id="password"
-                            value={password}
+                            name="password"
                             required
+                            flexDerection={true}
                             placeholder="Enter your password"
-                            onChange={(e) => setPassword(e.target.value)}
+                            inputRef={password}
                         />
                     </div>
                     <div className={cx('control')}>
-                        <label htmlFor="password">Confirm Password</label>
-                        <input
+                        <Input
                             type="password"
-                            id="password"
-                            value={confirmPassword}
+                            id="confirm-password"
+                            name="Confirm Password"
                             required
+                            flexDerection={true}
                             placeholder="Enter your password"
-                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            inputRef={confirmPassword}
                         />
                     </div>
                     <div className={cx('actions')}>
-                        <button type="submit">Register</button>
+                        <Button type="submit">Register</Button>
                     </div>
                 </form>
                 <span>
                     Already have an account?
-                    <Link to="/login">login</Link>
+                    <Link to={config.routes.login} className={cx('link')}>
+                        &nbsp;login
+                    </Link>
                 </span>
             </div>
         </div>

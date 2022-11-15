@@ -36,9 +36,15 @@ label.title {
     box-sizing: border-box !important;
     background-color: #fff !important;
     word-break: break-all;
+    color: #333;
     &:focus {
         border: 1px solid #741188;
     }
+}
+.flex-derection {
+    display: flex;
+    flex-direction: row !important;
+    align-items: center;
 }
 .textarea {
     width: 95%;

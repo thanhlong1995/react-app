@@ -5,25 +5,26 @@ import Button from '~/components/UI/Button';
 
 const cx = classNames.bind(style);
 
-function Form({
-    children,
-    submitHandler,
-    handleClosePopper,
-    classes,
-    isDisable,
-}) {
+// function Form({
+//     children,
+//     submitHandler,
+//     handleClosePopper,
+//     classes,
+//     isDisable,
+// }) {
+function Form({ children }, props) {
     return (
-        <form onSubmit={submitHandler} className={cx('div-form')}>
+        <form onSubmit={props.submitHandler} className={cx('div-form')}>
             {children}
             <div className={cx('div-btn')}>
                 <Button
                     className={cx('edit-profile-cancel')}
-                    onClick={handleClosePopper}>
+                    onClick={props.handleClosePopper}>
                     Cancel
                 </Button>
                 <Button
-                    className={cx('btn-submit', classes)}
-                    disabled={isDisable}
+                    className={cx('btn-submit', props.classes)}
+                    disabled={props.isDisable}
                     type="submit">
                     Save
                 </Button>

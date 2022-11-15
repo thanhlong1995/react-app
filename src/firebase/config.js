@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
+import { getFirestore } from 'firebase/firestore';
 // import { getStorage } from 'firebase/storage';
 // import { getFirestore } from 'firebase/firestore';
 // import { getDatabase } from 'firebase/database';
@@ -16,11 +17,13 @@ const firebaseConfig = {
     measurementId: 'G-5PGT2GNQXW',
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const database = getDatabase(app);
-export { auth };
-// export const database = getDatabase(app);
-// export const fStore = getFirestore(app);
-// export const fStorage = getStorage(app);
+const db = getFirestore(app);
+if (window.location.hostname === 'localhost') {
+    // auth.useEmulator('http://localhost:9099');
+    // db.useEmulator('localhost', '8080');
+}
+
+export { auth, db };

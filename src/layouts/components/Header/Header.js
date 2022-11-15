@@ -1,25 +1,18 @@
-import React, {
-    useState,
-    useEffect,
-    useContext,
-    useCallback,
-    useRef,
-    createContext,
-} from 'react';
-import { ThemeContext } from '../../../App';
+import React, { useState, useContext, createContext } from 'react';
+import { useAppProvider } from '~/Context/AppProvider/AppProvider';
 import classNames from 'classnames/bind';
 import style from './Header.module.scss';
 import HandleColorTheme from '~/layouts/components/ThemeColor';
 import NavMenu from './NavMenu';
 import Share from '~/layouts/components/Header/Shares';
-import Button from '~/components/UI/Button';
 import { MenuIcon } from '~/components/Icons';
 import WrapperPopper from '~/components/UI/Popper/WrapperPopper';
+import Logout from '~/Auth/Logout';
 
 const cx = classNames.bind(style);
 
 const Header = (props) => {
-    const { themeColor, isSmallSize } = useContext(ThemeContext);
+    const valueProvider = useAppProvider();
     const [anchorEl, setAnchorEl] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
 
@@ -33,15 +26,14 @@ const Header = (props) => {
         setIsOpen(false);
     };
 
-    const hanldleLogout = () => {};
     return (
         <header
             className={cx(
                 'main-header',
-                !themeColor ? 'has-border-bottom' : '',
+                !valueProvider?.themeColor ? 'has-border-bottom' : '',
             )}>
             <div className={cx('main-header-action')}>
-                {isSmallSize &&
+                {valueProvider?.isSmallSize &&
                     (props.Page !== '/admin' ? (
                         <div
                             className={cx('main-header-link-icon')}
@@ -75,7 +67,7 @@ const Header = (props) => {
             </div>
             {props.Page === '/admin'
                 ? ''
-                : !isSmallSize && (
+                : !valueProvider?.isSmallSize && (
                       <div className={cx('main-header-link')}>
                           <ShowPopper.Provider value={setAnchorEl}>
                               <NavMenu />
@@ -83,15 +75,7 @@ const Header = (props) => {
                       </div>
                   )}
             <div className={cx('main-header-share')}>
-                {props.Page === '/admin' ? (
-                    <Button
-                        className={cx('btn-logout')}
-                        onClick={hanldleLogout}>
-                        Logout
-                    </Button>
-                ) : (
-                    <Share />
-                )}
+                {props.Page === '/admin' ? <Logout /> : <Share />}
             </div>
         </header>
     );

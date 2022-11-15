@@ -1,39 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import classnames from 'classnames/bind';
+import { Link } from 'react-router-dom';
+import { getAuth, signInWithPopup, FacebookAuthProvider } from 'firebase/auth';
+import config from '~/config/';
 import styles from './Login.module.scss';
-import { useNavigate, Link } from 'react-router-dom';
-import { useAuthValue } from '~/Auth/AuthContext/AuthContext';
-import {
-    signInWithEmailAndPassword,
-    sendEmailVerification,
-} from 'firebase/auth';
-import { auth } from '~/firebase';
+import Input from '~/components/UI/Input';
+import Loader from '~/components/UI/Loader';
+import Button from '~/components/UI/Button';
+import { addDocument, generateKeywords } from '~/firebase/services';
+
+const fbProvider = new FacebookAuthProvider();
 
 const cx = classnames.bind(styles);
 
 const Login = () => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+    const email = useRef('');
+    const password = useRef('');
     const [error, setError] = useState('');
-    const { setTimeActive } = useAuthValue();
-    const navigate = useNavigate();
+    const [isLoading, setIsLoading] = useState(false);
 
-    const login = (e) => {
-        e.preventDefault();
-        signInWithEmailAndPassword(auth, email, password)
-            .then(() => {
-                if (!auth.currentUser.emailVerified) {
-                    sendEmailVerification(auth.currentUser)
-                        .then(() => {
-                            setTimeActive(true);
-                            navigate('/verify-email');
-                        })
-                        .catch((err) => alert(err.message));
-                } else {
-                    navigate('/');
-                }
-            })
-            .catch((err) => setError(err.message));
+    const auth = getAuth();
+
+    const handleFBLogin = async (provider) => {
+        const { additionalUserInfo, user } = await signInWithPopup(
+            auth,
+            provider,
+        );
+        if (additionalUserInfo?.isNewUser) {
+            console.log('handleFBLogin =' + user);
+            addDocument('users', {
+                displayName: user.displayName,
+                email: user.email,
+                photoURL: user.photoURL,
+                uid: user.uid,
+                providerId: additionalUserInfo.providerId,
+                keywords: generateKeywords(user.displayName?.toLowerCase()),
+            });
+        }
     };
 
     return (
@@ -41,37 +44,60 @@ const Login = () => {
             <div className={cx('form')}>
                 <h1 className={cx('title-form')}>Login</h1>
                 {error && <div className={cx('auth__error')}>{error}</div>}
-                <form onSubmit={login}>
+                <form>
                     <div className={cx('control')}>
-                        <label htmlFor="email">E-Mail</label>
-                        <input
-                            type="email"
+                        <Input
                             id="email"
-                            value={email}
+                            type="email"
+                            name="email"
                             required
                             placeholder="Enter your email"
-                            onChange={(e) => setEmail(e.target.value)}
+                            flexDerection={true}
+                            inputRef={email}
                         />
                     </div>
                     <div className={cx('control')}>
-                        <label htmlFor="password">Password</label>
-                        <input
-                            type="password"
+                        <Input
                             id="password"
-                            value={password}
+                            type="password"
+                            name="password"
                             required
+                            flexDerection={true}
                             placeholder="Enter your password"
-                            onChange={(e) => setPassword(e.target.value)}
+                            inputRef={password}
                         />
                     </div>
                     <div className={cx('actions')}>
-                        <button type="submit">Login</button>
+                        <Button type="submit" className={cx('btn-signin')}>
+                            {isLoading ? <Loader /> : ''}Login
+                        </Button>
                     </div>
                 </form>
-                <p className={cx('register-link')}>
-                    Don't have and account?
-                    <Link to="/signup">Create one here</Link>
-                </p>
+                <div className={cx('social-media-login')}>
+                    <div className={cx('social-media-row')}>
+                        <div className={cx('social-media-btn')}>
+                            <Button className={cx('btn-signin')}>
+                                Đăng nhập bằng Google
+                            </Button>
+                            <Button
+                                className={cx('btn-signin')}
+                                onClick={handleFBLogin(fbProvider)}>
+                                Đăng nhập bằng Facebook
+                            </Button>
+                        </div>
+                    </div>
+                    <div className={cx('register-link')}>
+                        <span className={cx('comment')}>
+                            Don't have and account?&nbsp;
+                        </span>
+                        <Link
+                            to={config.routes.signup}
+                            className={cx('comment')}>
+                            Create one&nbsp;
+                            <span className={cx('link')}>here</span>
+                        </Link>
+                    </div>
+                </div>
             </div>
         </div>
     );

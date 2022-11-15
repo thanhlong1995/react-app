@@ -8,12 +8,6 @@ function Input(props) {
     const hidden = 'hidden';
     const [img, setImg] = useState();
 
-    // useEffect(() => {
-    //     return () => {
-    //         img && URL.revokeObjectURL(img.preview);
-    //     };
-    // }, [img]);
-
     const handlePreviewImage = (e) => {
         const file = e.target.files[0];
         file.preview = URL.createObjectURL(file);
@@ -26,7 +20,11 @@ function Input(props) {
             {props.type === hidden ? (
                 ''
             ) : (
-                <div className={cx('form-input')}>
+                <div
+                    className={cx(
+                        'form-input',
+                        props.flexDerection ? 'flex-derection' : '',
+                    )}>
                     <label className={cx('title')}>{props.name}</label>
                     {props.type === 'textarea' && (
                         <textarea
@@ -44,6 +42,23 @@ function Input(props) {
                         />
                     )}
                     {props.type === 'text' && (
+                        <input
+                            className={cx('input')}
+                            placeholder={'Enter ' + props.name}
+                            ref={props.inputRef}
+                            type={props.type}
+                            autoComplete="on"
+                        />
+                    )}
+                    {props.type === 'email' && (
+                        <input
+                            className={cx('input')}
+                            placeholder={'Enter ' + props.name}
+                            ref={props.inputRef}
+                            type={props.type}
+                        />
+                    )}
+                    {props.type === 'password' && (
                         <input
                             className={cx('input')}
                             placeholder={'Enter ' + props.name}

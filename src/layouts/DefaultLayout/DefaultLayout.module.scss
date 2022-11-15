@@ -4,10 +4,26 @@
     width: 100%;
     min-height: 100vh;
     min-width: 1060px;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: fff !important;
+    }
 }
 .has-theme-color {
     background-color: var(--tux-colorBGPrimary);
     color: var(--color-black);
     width: 100%;
     min-height: 100vh;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: var(--color-black) !important;
+    }
 }
