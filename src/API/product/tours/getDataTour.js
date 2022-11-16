@@ -1,11 +1,11 @@
-import * as Service from '~/services/product/ProjectInfo';
+import * as Service from '~/services/product/TourService';
 
 const getDataTour = async (setListDataTour, setMsgError) => {
     try {
         const res = await Service.getAll();
-        const listDataProjectInfo = [];
+        var listData = [];
         for (const key in res) {
-            listDataProjectInfo.push({
+            listData.push({
                 id: key,
                 name: res[key].name,
                 info: res[key].info,
@@ -13,7 +13,7 @@ const getDataTour = async (setListDataTour, setMsgError) => {
                 price: res[key].price,
             });
         }
-        setListDataTour(listDataProjectInfo);
+        setListDataTour(listData);
     } catch (error) {
         setMsgError(error);
     }

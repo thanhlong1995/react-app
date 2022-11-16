@@ -1,4 +1,4 @@
-import React, { useState, useContext, useCallback, memo } from 'react';
+import React, { useState, useCallback, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAppProvider } from '~/Context/AppProvider/AppProvider';
 import classNames from 'classnames/bind';
@@ -25,32 +25,19 @@ function NavMenu() {
                     <div
                         className={cx(
                             'wrapper',
-                            !valueProvider?.themeColor
-                                ? 'wrapper-has-color'
-                                : '',
+                            !valueProvider?.themeColor ? 'wrapper-has-color' : '',
                             valueProvider?.isSmallSize ? 'isSmallSize' : '',
                         )}>
                         {listNavManu.length > 0
                             ? listNavManu.map((item, index) => (
-                                  <aside
-                                      className={cx(
-                                          'nav-link',
-                                          active === item.name && 'is-active',
-                                      )}
-                                      key={index}>
+                                  <aside className={cx('nav-link', active === item.name && 'is-active')} key={index}>
                                       <NavLink
                                           to={item.href}
                                           style={({ isActive }) => ({
-                                              borderBottom: isActive
-                                                  ? '1px solid #ec5990'
-                                                  : '',
-                                              paddingBottom: isActive
-                                                  ? '4px'
-                                                  : '',
+                                              borderBottom: isActive ? '1px solid #ec5990' : '',
+                                              paddingBottom: isActive ? '4px' : '',
                                           })}
-                                          onClick={() =>
-                                              onClickAcTive(item.name)
-                                          }>
+                                          onClick={() => onClickAcTive(item.name)}>
                                           {item.name}
                                       </NavLink>
                                   </aside>
