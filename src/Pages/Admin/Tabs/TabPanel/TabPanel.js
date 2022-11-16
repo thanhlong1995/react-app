@@ -3,7 +3,6 @@ import Box from '@mui/material/Box';
 import classNames from 'classnames/bind';
 import styles from './TabPanel.module.scss';
 import Button from '~/components/UI/Button';
-import Popper from '../TabContents/ContentTabGetStart/conponents/Popper';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 
@@ -47,19 +46,13 @@ function TabPanel(props) {
                     <h2>{props.title}</h2>
                     {props.title === 'Get Start Setting' ? (
                         !hasChecked ? (
-                            <Button
-                                className={cx('btn-add')}
-                                onClick={handleAddGetStart}>
+                            <Button className={cx('btn-add')} onClick={handleAddGetStart}>
                                 Add
                             </Button>
                         ) : (
-                            <div
-                                className={cx('header-icon')}
-                                onClick={handleDelete}>
+                            <div className={cx('header-icon')} onClick={handleDelete}>
                                 <FontAwesomeIcon icon={faTrash} />
-                                <span className={cx('count-item')}>
-                                    {countItem > 0 ? countItem : ''}
-                                </span>
+                                <span className={cx('count-item')}>{countItem > 0 ? countItem : ''}</span>
                             </div>
                         )
                     ) : (
@@ -67,14 +60,6 @@ function TabPanel(props) {
                     )}
                 </div>
                 {value === index && <Box>{children}</Box>}
-                <Popper
-                    classes
-                    isDisable
-                    id={id}
-                    open={open}
-                    anchorEl={anchorEl}
-                    setAnchorEl={setAnchorEl}
-                />
             </div>
         </ThemeTabPanel.Provider>
     );

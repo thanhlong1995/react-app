@@ -1,1 +1,1 @@
-export * from './Constant';
+export * as constant from './Constant';

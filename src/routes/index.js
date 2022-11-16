@@ -1,1 +1,1 @@
-export { publicLayout, privateLayout } from './routes';
+export { publicLayout, privateLayout, productLayout } from './routes';

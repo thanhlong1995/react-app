@@ -17,9 +17,9 @@ function NavMenu() {
 
     return (
         <Fetcher>
-            {({ listMenu, error }) => {
-                if (error) {
-                    return <div>{error}</div>;
+            {({ listNavManu, msgError }) => {
+                if (msgError) {
+                    return <div>{msgError}</div>;
                 }
                 return (
                     <div
@@ -30,8 +30,8 @@ function NavMenu() {
                                 : '',
                             valueProvider?.isSmallSize ? 'isSmallSize' : '',
                         )}>
-                        {listMenu.length > 0
-                            ? listMenu.map((item, index) => (
+                        {listNavManu.length > 0
+                            ? listNavManu.map((item, index) => (
                                   <aside
                                       className={cx(
                                           'nav-link',
@@ -55,7 +55,7 @@ function NavMenu() {
                                       </NavLink>
                                   </aside>
                               ))
-                            : error}
+                            : msgError}
                     </div>
                 );
             }}

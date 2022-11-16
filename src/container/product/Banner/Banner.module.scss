@@ -1,0 +1,43 @@
+.wrapper {
+    min-height: 60vh;
+    display: flex;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    justify-content: center;
+    padding: 5rem 0px;
+}
+.title {
+    font-size: 6rem;
+    line-height: 0;
+}
+.banner-description {
+    display: flex;
+    flex-direction: column;
+    min-height: 40vh;
+    justify-content: flex-start;
+}
+.description {
+    display: flex;
+    flex-direction: row;
+    word-break: break-all;
+    max-width: 500px;
+    line-height: 2;
+    margin: 5rem 0px;
+}
+
+.react-inportant {
+    letter-spacing: 5px;
+    border-bottom: 2px solid var(--color-light-pink);
+    margin: 0px 0.5rem;
+    display: inline-block;
+    text-align: center;
+    line-height: 1.25;
+    font-style: italic;
+    font-weight: 900;
+}
+.banner-image {
+    width: 400px;
+    height: 400px;
+    margin-left: 30px;
+}

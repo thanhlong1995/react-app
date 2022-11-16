@@ -1,4 +1,3 @@
-import { useContext } from 'react';
 import classNames from 'classnames/bind';
 import styles from './Popper.module.scss';
 import { Popper, ClickAwayListener } from '@mui/material';

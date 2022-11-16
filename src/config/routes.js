@@ -5,7 +5,7 @@ const routes = {
     login: '/login',
     admin: '/admin',
     api: '/api',
-    getstart: '/get-start',
+    product: '/product',
     resources: '/resources',
     verifyemail: '/verify-email',
 };

@@ -5,17 +5,15 @@ import Image from '~/components/UI/Image';
 import images from '~/assets/images';
 import { GithubIcon } from '~/components/Icons';
 import Button from '~/components/UI/Button';
+import { constant } from '~/components/Constant';
 
 const cx = classNames.bind(styles);
 
 function Shares() {
-    const linkFacebook = 'https://www.facebook.com/Long.NT.95';
-    const linkGithub = 'https://github.com/thanhlong1995/react-hook-api-app';
-
     return (
         <div className={cx('wrapper')}>
             <div className={cx('icon-share')}>
-                <Button href={linkFacebook} target="_blank">
+                <Button href={constant.LINK_FACEBOOK} target="_blank">
                     <Image
                         src={images.logoFacebook}
                         alt="Facebook logo"
@@ -24,7 +22,7 @@ function Shares() {
                 </Button>
             </div>
             <div className={cx('icon-share')}>
-                <Button href={linkGithub}>
+                <Button href={constant.LINK_GITHUB}>
                     <GithubIcon className={cx('github-logo')} />
                 </Button>
             </div>

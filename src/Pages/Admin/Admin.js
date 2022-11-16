@@ -7,7 +7,6 @@ import Box from '@mui/material/Box';
 import TabPanel from './Tabs/TabPanel';
 import ContentTabHeader from './Tabs/TabContents/ContentTabHeader';
 import ContentTabHome from './Tabs/TabContents/ContentTabHome';
-import ContentTabGetStart from './Tabs/TabContents/ContentTabGetStart';
 import ContentTabAPI from './Tabs/TabContents/ContentTabAPI';
 import ContentTabAdvance from './Tabs/TabContents/ContentTabAdvance';
 import ContentTabResource from './Tabs/TabContents/ContentTabResource';
@@ -17,7 +16,6 @@ const cx = classNames.bind(styles);
 const menu = [
     { name: 'Header Setting', conponent: <ContentTabHeader /> },
     { name: 'Home Setting', conponent: <ContentTabHome /> },
-    { name: 'Get Start Setting', conponent: <ContentTabGetStart /> },
     { name: 'API Setting', conponent: <ContentTabAPI /> },
     { name: 'Advance Setting', conponent: <ContentTabAdvance /> },
     { name: 'Resource Setting', conponent: <ContentTabResource /> },
@@ -58,16 +56,9 @@ function Admin() {
                                         aria-label="basic tabs example">
                                         {menu.map((item, index) => (
                                             <Tab
-                                                className={cx(
-                                                    'list-tab',
-                                                    isActive ? 'is-active' : '',
-                                                )}
+                                                className={cx('list-tab', isActive ? 'is-active' : '')}
                                                 ref={(node) =>
-                                                    node?.style.setProperty(
-                                                        'align-items',
-                                                        'flex-start',
-                                                        'important',
-                                                    )
+                                                    node?.style.setProperty('align-items', 'flex-start', 'important')
                                                 }
                                                 label={item.name}
                                                 key={index}
@@ -79,16 +70,10 @@ function Admin() {
                             </div>
                         </div>
                     </div>
-                    <div
-                        className={cx('main-content')}
-                        style={{ marginLeft: marginLeft }}>
+                    <div className={cx('main-content')} style={{ marginLeft: marginLeft }}>
                         <div className={cx('content')}>
                             {menu.map((item, index) => (
-                                <TabPanel
-                                    title={item.name}
-                                    key={index}
-                                    value={value}
-                                    index={index}>
+                                <TabPanel title={item.name} key={index} value={value} index={index}>
                                     {item.conponent}
                                 </TabPanel>
                             ))}

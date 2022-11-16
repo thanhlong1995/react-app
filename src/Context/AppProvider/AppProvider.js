@@ -1,31 +1,29 @@
-import React, {
-    useState,
-    useEffect,
-    useContext,
-    createContext,
-    useCallback,
-} from 'react';
-import * as Service from '~/services/NavModuleService';
+import React, { useState, useEffect, useContext, createContext, useCallback } from 'react';
+import { getDataProjectInfo } from '~/API/product/projectInfo/getDataProjectInfo';
+import { getDataNavHeader } from '~/API/Header/getDataNavHeader';
+import { getDataTour } from '~/API/product/tours/Tours';
 
 const AppContext = createContext();
 
 export function AppProvider({ children }) {
     const [themeColor, setThemeColor] = useState(true);
     const [isSmallSize, setIsSmallSize] = useState(false);
+    const [listDataProjectInfo, setListDataProjectInfo] = useState([]);
+    const [listNavManu, setListNavManu] = useState([]);
+    const [listDataTour, setListDataTour] = useState([]);
+    const [msgError, setMsgError] = useState('');
 
+    // Get size creeen
     useEffect(() => {
         function handleResize() {
             setWindowDimensions(getWindowDimensions());
         }
-
         window.addEventListener('resize', handleResize);
         return () => window.removeEventListener('resize', handleResize);
     }, []);
+    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
 
-    const [windowDimensions, setWindowDimensions] = useState(
-        getWindowDimensions(),
-    );
-
+    // getWindowDimensions
     function getWindowDimensions() {
         const { innerWidth: width, innerHeight: height } = window;
         return {
@@ -34,6 +32,7 @@ export function AppProvider({ children }) {
         };
     }
 
+    // set setIsSmallSize
     useEffect(() => {
         if (windowDimensions.width < 1040) {
             setIsSmallSize(true);
@@ -42,44 +41,46 @@ export function AppProvider({ children }) {
         }
     }, [windowDimensions.width]);
 
-    const [listMenu, setListMenu] = useState([]);
-    const [error, setError] = useState('');
-
     useEffect(() => {
-        getData();
+        getDataNavMenu(setListNavManu, setMsgError);
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    const getData = useCallback(async () => {
-        try {
-            const res = await Service.getAll();
-            const listITemResult = [];
-            for (const key in res) {
-                listITemResult.push({
-                    id: key,
-                    name: res[key].name,
-                    href: res[key].href,
-                });
-            }
-            setListMenu(listITemResult);
-        } catch (error) {
-            setError(error);
-        }
+    // get data NavHeader
+    const getDataNavMenu = useCallback(async (setListNavManu, setMsgError) => {
+        getDataNavHeader(setListNavManu, setMsgError);
+    }, []);
+
+    useEffect(() => {
+        getDataProject(setListDataProjectInfo, setMsgError);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    // get data Project
+    const getDataProject = useCallback(async (setListDataProjectInfo, setMsgError) => {
+        getDataProjectInfo(setListDataProjectInfo, setMsgError);
+    }, []);
+
+    useEffect(() => {
+        getDataTour(setListDataTour, setMsgError);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+    // get data Tour
+    const getDataTour = useCallback(async (setListDataTour, setMsgError) => {
+        getDataTour(setListDataTour, setMsgError);
     }, []);
 
     const valueProvider = {
         themeColor,
         setThemeColor,
         isSmallSize,
-        listMenu,
-        error,
+        listNavManu,
+        listDataProjectInfo,
+        listDataTour,
+        msgError,
     };
-
-    return (
-        <AppContext.Provider value={valueProvider}>
-            {children}
-        </AppContext.Provider>
-    );
+    console.log(listDataProjectInfo);
+    return <AppContext.Provider value={valueProvider}>{children}</AppContext.Provider>;
 }
 
 export function useAppProvider() {

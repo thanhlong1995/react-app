@@ -4,11 +4,14 @@ import config from '~/config/';
 import Advance from '~/Pages/Advance/';
 import API from '~/Pages/API';
 import Admin from '~/Pages/Admin';
-import GetStart from '~/Pages/GetStart';
+import Product from '~/Pages/product';
 import Home from '~/Pages/Home';
 import Resource from '~/Pages/Resource';
 import Login from '~/Auth/Login';
 import SignUp from '~/Auth/SignUp';
+// Screen
+import BirthDay from '~/screens/birthday';
+import Tours from '~/screens/tours';
 
 const publicLayout = [
     { path: config.routes.home, conponent: Home, header: 'display' },
@@ -16,11 +19,16 @@ const publicLayout = [
     { path: config.routes.api, conponent: API, header: 'display' },
     { path: config.routes.login, conponent: Login, header: 'none' },
     { path: config.routes.signup, conponent: SignUp, header: 'none' },
-    { path: config.routes.getstart, conponent: GetStart, header: 'display' },
+    { path: config.routes.product, conponent: Product, header: 'display' },
     { path: config.routes.resources, conponent: Resource, header: 'display' },
 ];
-const privateLayout = [
-    { path: config.routes.admin, conponent: Admin, header: 'display' },
+
+const privateLayout = [{ path: config.routes.admin, conponent: Admin, header: 'display' }];
+
+// Product layout
+const productLayout = [
+    { path: config.route_product.birthday, conponent: BirthDay },
+    { path: config.route_product.tours, conponent: Tours },
 ];
 
-export { publicLayout, privateLayout };
+export { publicLayout, privateLayout, productLayout };
