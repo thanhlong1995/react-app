@@ -12,8 +12,33 @@
     --color-purple: #0f111b;
     --color-grey: #333;
     --color-light-grey: #ccc;
-    --font-family: 'sourcecodepro', 'roboto', 'ProximaNova', serif, monospace,
-        Georgia, Arial, Helvetica, Courier New, Lucida Sans Unicode;
+    --clr-primary-1: #063251;
+    --clr-primary-2: #104e7a;
+    --clr-primary-3: #1a6aa2;
+    --clr-primary-4: #2d87c8;
+    --clr-primary-5: #49a6e9;
+    --clr-primary-6: #6ebef7;
+    --clr-primary-7: #8bcbf9;
+    --clr-primary-8: #a5d5f8;
+    --clr-primary-9: #c5e5fc;
+    --clr-primary-10: #ebf7ff;
+    --clr-grey-1: #102a42;
+    --clr-grey-2: #243a52;
+    --clr-grey-3: #324d67;
+    --clr-grey-4: #48647f;
+    --clr-grey-5: #617d98;
+    --clr-grey-6: #829ab0;
+    --clr-grey-7: #9eb2c7;
+    --clr-grey-8: #bcccdc;
+    --clr-grey-9: #dae2ec;
+    --clr-grey-10: #f1f5f8;
+    --clr-white: #fff;
+    --clr-red-dark: #bb2525;
+    --clr-red-light: #e66b6b;
+    --clr-green-dark: #25bb32;
+    --clr-green-light: #6be675;
+    --font-family: 'sourcecodepro', 'roboto', 'ProximaNova', serif, monospace, Georgia, Arial, Helvetica, Courier New,
+        Lucida Sans Unicode;
 
     // Default layout
     --default-layout-header-height: 60px;
@@ -21,6 +46,10 @@
     --default-layout-horizontal-spacer: 24px;
     --tux-colorSDSecondary: rgba(0, 0, 0, 0.5);
     --tux-colorBGPrimary: rgba(255, 255, 255, 1);
+    --light-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    --max-width: 1170px;
+    --fixed-width: 620px;
 }
 
 * {
@@ -81,6 +110,14 @@ h1 {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     font-weight: bold;
+}
+h2,
+h3,
+h4 {
+    letter-spacing: 0.1rem;
+    letter-spacing: var(--spacing);
+    text-transform: capitalize;
+    line-height: 1.25;
 }
 
 /* width */

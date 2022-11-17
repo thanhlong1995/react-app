@@ -27,34 +27,17 @@ const Header = (props) => {
     };
 
     return (
-        <header
-            className={cx(
-                'main-header',
-                !valueProvider?.themeColor ? 'has-border-bottom' : '',
-            )}>
+        <header className={cx('main-header', !valueProvider?.themeColor ? 'has-border-bottom' : '')}>
             <div className={cx('main-header-action')}>
                 {valueProvider?.isSmallSize &&
                     (props.Page !== '/admin' ? (
-                        <div
-                            className={cx('main-header-link-icon')}
-                            onClick={handleShowMenuPopper}>
+                        <div className={cx('main-header-link-icon')} onClick={handleShowMenuPopper}>
                             <MenuIcon />
                             {isOpen && (
-                                <WrapperPopper
-                                    open={open}
-                                    anchorEl={anchorEl}
-                                    clickAwayHandler={clickAwayHandler}>
-                                    <div
-                                        className={cx(
-                                            'main-header-small-size-link',
-                                        )}>
-                                        <ShowPopper.Provider
-                                            value={setAnchorEl}>
-                                            <NavMenu
-                                                className={cx(
-                                                    'nav-menu-small-size',
-                                                )}
-                                            />
+                                <WrapperPopper open={open} anchorEl={anchorEl} clickAwayHandler={clickAwayHandler}>
+                                    <div className={cx('main-header-small-size-link')}>
+                                        <ShowPopper.Provider value={setAnchorEl}>
+                                            <NavMenu className={cx('nav-menu-small-size')} />
                                         </ShowPopper.Provider>
                                     </div>
                                 </WrapperPopper>
@@ -74,9 +57,7 @@ const Header = (props) => {
                           </ShowPopper.Provider>
                       </div>
                   )}
-            <div className={cx('main-header-share')}>
-                {props.Page === '/admin' ? <Logout /> : <Share />}
-            </div>
+            <div className={cx('main-header-share')}>{props.Page === '/admin' ? <Logout /> : <Share />}</div>
         </header>
     );
 };
