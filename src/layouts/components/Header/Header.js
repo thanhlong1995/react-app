@@ -1,13 +1,13 @@
-import React, { useState, useContext, createContext } from 'react';
+import React, { useState, createContext } from 'react';
 import { useAppProvider } from '~/Context/AppProvider/AppProvider';
 import classNames from 'classnames/bind';
 import style from './Header.module.scss';
 import HandleColorTheme from '~/layouts/components/ThemeColor';
-import NavMenu from './NavMenu';
 import Share from '~/layouts/components/Header/Shares';
 import { MenuIcon } from '~/components/Icons';
 import WrapperPopper from '~/components/UI/Popper/WrapperPopper';
 import Logout from '~/Auth/Logout';
+import NavMenuList from '~/container/Header/NavMenuList';
 
 const cx = classNames.bind(style);
 
@@ -25,7 +25,7 @@ const Header = (props) => {
     const clickAwayHandler = () => {
         setIsOpen(false);
     };
-
+    console.log('rerender');
     return (
         <header className={cx('main-header', !valueProvider?.themeColor ? 'has-border-bottom' : '')}>
             <div className={cx('main-header-action')}>
@@ -37,7 +37,7 @@ const Header = (props) => {
                                 <WrapperPopper open={open} anchorEl={anchorEl} clickAwayHandler={clickAwayHandler}>
                                     <div className={cx('main-header-small-size-link')}>
                                         <ShowPopper.Provider value={setAnchorEl}>
-                                            <NavMenu className={cx('nav-menu-small-size')} />
+                                            <NavMenuList className={cx('nav-menu-small-size')} />
                                         </ShowPopper.Provider>
                                     </div>
                                 </WrapperPopper>
@@ -53,7 +53,7 @@ const Header = (props) => {
                 : !valueProvider?.isSmallSize && (
                       <div className={cx('main-header-link')}>
                           <ShowPopper.Provider value={setAnchorEl}>
-                              <NavMenu />
+                              <NavMenuList />
                           </ShowPopper.Provider>
                       </div>
                   )}

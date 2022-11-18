@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Header from '~/layouts/components/Header';
 import classNames from 'classnames/bind';
 import styles from './DefaultLayout.module.scss';
@@ -7,7 +8,8 @@ import { useAppProvider } from '~/Context/AppProvider/AppProvider';
 const cx = classNames.bind(styles);
 
 function DefaultLayout(props) {
-    const valueProvider = useAppProvider();
+    const colorTheme = useSelector((state) => state.colorThemeReducer.color);
+    console.log('DefaultLayout = ' + colorTheme);
     return (
         <div className={cx('main')}>
             {props.header === 'none' ? (
@@ -17,11 +19,7 @@ function DefaultLayout(props) {
             ) : (
                 <>
                     <Header Page={props.Page} />
-                    <div
-                        className={cx(
-                            'container',
-                            !valueProvider?.themeColor ? 'has-theme-color' : '',
-                        )}>
+                    <div className={cx('container', colorTheme === 'light' ? 'has-theme-color' : '')}>
                         <div className="content">{props.children}</div>
                     </div>
                 </>

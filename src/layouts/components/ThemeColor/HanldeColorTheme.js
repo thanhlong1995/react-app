@@ -1,19 +1,22 @@
-import { useState, useContext, useEffect, useRef } from 'react';
-import { useAppProvider } from '~/Context/AppProvider/AppProvider';
+import { useState, useEffect, useLayoutEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './HandleColorTheme.module.scss';
 import Search from '~/layouts/components/Header/Search';
+import { setThemeColor } from '~/redux/actions/themeColorAction';
 
 const cx = classNames.bind(styles);
 function HandleColorTheme() {
-    const valueProvider = useAppProvider();
+    const dispatch = useDispatch();
     const [checked, setChecked] = useState(false);
     const [hiddenIcon, setHiddenIcon] = useState(false);
     const [valueInput, setValueInput] = useState('');
 
+    useLayoutEffect(() => {
+        checked ? dispatch(setThemeColor('light')) : dispatch(setThemeColor('dark'));
+    }, [checked]);
     const handleChangeColor = () => {
         setChecked(!checked);
-        valueProvider?.setThemeColor(checked);
     };
 
     const handleOnClick = () => {
@@ -43,21 +46,9 @@ function HandleColorTheme() {
             />
             <label
                 htmlFor="toggle"
-                className={cx(
-                    'toggle-module-toggle',
-                    hiddenIcon ? 'hidden-checkbox-change-color' : '',
-                )}>
-                <input
-                    id="toggle"
-                    type="checkbox"
-                    onChange={handleChangeColor}
-                />
-                <span
-                    className={cx(
-                        'toggle-module-slider',
-                        'toggle-module-round',
-                    )}
-                />
+                className={cx('toggle-module-toggle', hiddenIcon ? 'hidden-checkbox-change-color' : '')}>
+                <input id="toggle" type="checkbox" onChange={handleChangeColor} />
+                <span className={cx('toggle-module-slider', 'toggle-module-round')} />
             </label>
         </div>
     );
