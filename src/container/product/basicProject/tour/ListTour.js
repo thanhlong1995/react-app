@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTours, setError } from '~/redux/actions/product/tour/tourAction';
+import { setTours, setError } from '~/redux/actions/product/tourAction';
 import classNames from 'classnames/bind';
 import styles from './ListTour.module.scss';
 import * as Service from '~/services/product/TourService';
@@ -9,7 +9,7 @@ import Tour from './Tour';
 const cx = classNames.bind(styles);
 
 function ListTour() {
-    const tours = useSelector((state) => state.tourReducer.tours);
+    const tours = useSelector((state) => state.reviewReducer.reviews);
     const msgError = useSelector((state) => state.tourError.error);
     const [isloading, setIsloading] = useState(false);
     const dispatch = useDispatch();

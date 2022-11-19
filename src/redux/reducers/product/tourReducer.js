@@ -21,17 +21,3 @@ export const tourError = (state = '', { type, payload }) => {
             return state;
     }
 };
-
-export const deleteTour = (state = initial, { type, id }) => {
-    console.log('deleteTour = ' + id);
-    const tourId = id;
-    switch (type) {
-        case TourActionTypes.REMOVE_TOUR:
-            return {
-                ...state,
-                state: state.tours.filter((tour) => tour.id !== tourId),
-            };
-        default:
-            return state;
-    }
-};

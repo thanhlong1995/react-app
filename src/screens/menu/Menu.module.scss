@@ -1,0 +1,25 @@
+.main-menu {
+    min-height: 100vh;
+    width: 100%;
+    background: var(--clr-grey-10);
+}
+.container-menu {
+    height: 100%;
+    width: 100%;
+    max-width: var(--fixed-width);
+}
+.title {
+    margin: 4rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: ui-monospace;
+}
+.underline {
+    width: 6rem;
+    height: 0.3rem;
+    background: #c59d5f;
+    margin-left: auto;
+    margin-right: auto;
+}

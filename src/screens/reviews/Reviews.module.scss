@@ -1,0 +1,25 @@
+main {
+    min-height: 70vh;
+    display: grid;
+    place-items: center;
+}
+.container {
+    width: 80vw;
+    max-width: var(--fixed-width);
+}
+.title {
+    margin: 4rem 0rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: ui-monospace;
+}
+.underline {
+    width: 6rem;
+    height: 0.3rem;
+    background: #49a6e9;
+    background: var(--clr-primary-5);
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -12,7 +12,9 @@ import SignUp from '~/Auth/SignUp';
 // Screen
 import BirthDay from '~/screens/birthday';
 import Tours from '~/screens/tours';
-import Review from '~/screens/reviews';
+import Reviews from '~/screens/reviews';
+import Accordino from '~/screens/accordion/Accordion';
+import Menu from '~/screens/menu';
 
 const publicLayout = [
     { path: config.routes.home, conponent: Home, header: 'display' },
@@ -30,7 +32,9 @@ const privateLayout = [{ path: config.routes.admin, conponent: Admin, header: 'd
 const productLayout = [
     { path: config.route_product.birthday, conponent: BirthDay },
     { path: config.route_product.tours, conponent: Tours },
-    { path: config.route_product.review, conponent: Review },
+    { path: config.route_product.review, conponent: Reviews },
+    { path: config.route_product.accordion, conponent: Accordino },
+    { path: config.route_product.menu, conponent: Menu },
 ];
 
 export { publicLayout, privateLayout, productLayout };
