@@ -11,11 +11,7 @@ export const GithubIcon = ({ width = '3rem', height = '3rem', className }) => (
             d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"></path>
     </svg>
 );
-export const SearchIcon = ({
-    width = '2.4rem',
-    height = '2.4rem',
-    className,
-}) => (
+export const SearchIcon = ({ width = '2.4rem', height = '2.4rem', className }) => (
     <svg
         className={className}
         width={width}
@@ -43,48 +39,26 @@ export const MenuIcon = ({ width = '30px', height = '30px', className }) => (
     </svg>
 );
 
-export const BannerIcon = ({
-    width = '450px',
-    height = '450px',
-    className,
-}) => (
+export const BannerIcon = ({ width = '450px', height = '450px', className }) => (
     <svg
         id="b20bc320-2fc8-4403-a458-9220829d6284"
         className={className}
-        dataName="Layer 1"
+        datamame="Layer 1"
         xmlns="http://www.w3.org/2000/svg"
         width={width}
         height={height}
         viewBox="0 0 645.2965 564.50774">
         <title>Load_more</title>
-        <rect
-            x="229.16609"
-            y="256.36275"
-            width="393.53455"
-            height="201.56648"
-            fill="#60dbfb"
-        />
+        <rect x="229.16609" y="256.36275" width="393.53455" height="201.56648" fill="#60dbfb" />
         <circle cx="487.25679" cy="204.16855" r="36.41465" fill="#ff6584" />
-        <rect
-            x="347.95965"
-            y="377.15642"
-            width="1.1903"
-            height="66.05518"
-            fill="#3f3d56"
-        />
+        <rect x="347.95965" y="377.15642" width="1.1903" height="66.05518" fill="#3f3d56" />
         <circle cx="348.55465" cy="377.15668" r="9.34108" fill="#3f3d56" />
         <path
             d="M625.9064,585.61372s-1.33444-28.701-28.69046-25.36486"
             transform="translate(-277.35175 -167.74613)"
             fill="#3f3d56"
         />
-        <rect
-            x="479.54286"
-            y="223.34723"
-            width="1.1903"
-            height="220.32758"
-            fill="#3f3d56"
-        />
+        <rect x="479.54286" y="223.34723" width="1.1903" height="220.32758" fill="#3f3d56" />
         <circle cx="480.13784" cy="223.24272" r="9.34108" fill="#3f3d56" />
         <circle cx="451.44739" cy="382.65095" r="9.34108" fill="#3f3d56" />
         <path
@@ -114,13 +88,7 @@ export const BannerIcon = ({
             transform="translate(-277.35175 -167.74613)"
             fill="#3f3d56"
         />
-        <rect
-            x="417.65779"
-            y="308.87408"
-            width="1.1903"
-            height="134.49037"
-            fill="#3f3d56"
-        />
+        <rect x="417.65779" y="308.87408" width="1.1903" height="134.49037" fill="#3f3d56" />
         <circle cx="418.2527" cy="308.87404" r="9.34108" fill="#3f3d56" />
         <path
             d="M695.60446,514.66221s-1.33444-28.701-28.69046-25.36486"
@@ -133,37 +101,19 @@ export const BannerIcon = ({
             fill="#3f3d56"
         />
         <circle cx="389.56225" cy="382.93544" r="9.34108" fill="#3f3d56" />
-        <rect
-            x="315.20145"
-            y="442.63969"
-            width="192.82837"
-            height="1.1903"
-            fill="#3f3d56"
-        />
+        <rect x="315.20145" y="442.63969" width="192.82837" height="1.1903" fill="#3f3d56" />
         <path
             d="M922.64825,692.85941H473.12237V167.74613H922.64825Zm-447.52588-2H920.64825V169.74613H475.12237Z"
             transform="translate(-277.35175 -167.74613)"
             fill="#3f3d56"
         />
-        <rect
-            x="196.77062"
-            y="45.16553"
-            width="447.52588"
-            height="2"
-            fill="#3f3d56"
-        />
+        <rect x="196.77062" y="45.16553" width="447.52588" height="2" fill="#3f3d56" />
         <circle cx="623.89945" cy="23.79628" r="7.7987" fill="#fff" />
         <path
             d="M901.25079,199.84134a8.29883,8.29883,0,1,1,8.29883-8.29883A8.30778,8.30778,0,0,1,901.25079,199.84134Zm0-15.59765a7.29883,7.29883,0,1,0,7.29883,7.29882A7.30647,7.30647,0,0,0,901.25079,184.24369Z"
             transform="translate(-277.35175 -167.74613)"
         />
-        <line
-            x1="620.39003"
-            y1="20.28686"
-            x2="627.40886"
-            y2="27.30569"
-            fill="#fff"
-        />
+        <line x1="620.39003" y1="20.28686" x2="627.40886" y2="27.30569" fill="#fff" />
         <rect
             x="900.75133"
             y="186.57923"
@@ -171,13 +121,7 @@ export const BannerIcon = ({
             height="9.92608"
             transform="translate(-148.83966 525.60931) rotate(-44.99801)"
         />
-        <line
-            x1="627.40886"
-            y1="20.28686"
-            x2="620.39003"
-            y2="27.30569"
-            fill="#fff"
-        />
+        <line x1="627.40886" y1="20.28686" x2="620.39003" y2="27.30569" fill="#fff" />
         <rect
             x="896.28824"
             y="191.04232"
@@ -191,16 +135,16 @@ export const BannerIcon = ({
             r="7.7987"
             fill="none"
             stroke="#3f3d56"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <path
             d="M901.25079,199.84134a8.29883,8.29883,0,1,1,8.29883-8.29883A8.30778,8.30778,0,0,1,901.25079,199.84134Zm0-15.59765a7.29883,7.29883,0,1,0,7.29883,7.29882A7.30647,7.30647,0,0,0,901.25079,184.24369Z"
             transform="translate(-277.35175 -167.74613)"
             fill="none"
             stroke="#3f3d56"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <line
             x1="620.39003"
@@ -209,8 +153,8 @@ export const BannerIcon = ({
             y2="27.30569"
             fill="none"
             stroke="#3f3d56"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <rect
             x="900.75133"
@@ -220,8 +164,8 @@ export const BannerIcon = ({
             transform="translate(-148.83966 525.60931) rotate(-44.99801)"
             fill="none"
             stroke="#3f3d56"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <line
             x1="627.40886"
@@ -230,8 +174,8 @@ export const BannerIcon = ({
             y2="27.30569"
             fill="none"
             stroke="#3f3d56"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
         <rect
             x="896.28824"
@@ -241,47 +185,17 @@ export const BannerIcon = ({
             transform="translate(-148.8222 525.63619) rotate(-45)"
             fill="none"
             stroke="#3f3d56"
-            stroke-miterlimit="10"
-            stroke-width="2"
+            strokeMiterlimit="10"
+            strokeWidth="2"
         />
-        <rect
-            x="229.1651"
-            y="18.99707"
-            width="69.58843"
-            height="9.5984"
-            fill="#3f3d56"
-        />
-        <rect
-            x="350.34494"
-            y="18.99707"
-            width="69.58843"
-            height="9.5984"
-            fill="#3f3d56"
-        />
-        <rect
-            x="471.52479"
-            y="18.99707"
-            width="69.58843"
-            height="9.5984"
-            fill="#3f3d56"
-        />
-        <rect
-            x="298.75352"
-            y="116.18091"
-            width="242.35969"
-            height="28.79521"
-            fill="#3f3d56"
-        />
+        <rect x="229.1651" y="18.99707" width="69.58843" height="9.5984" fill="#3f3d56" />
+        <rect x="350.34494" y="18.99707" width="69.58843" height="9.5984" fill="#3f3d56" />
+        <rect x="471.52479" y="18.99707" width="69.58843" height="9.5984" fill="#3f3d56" />
+        <rect x="298.75352" y="116.18091" width="242.35969" height="28.79521" fill="#3f3d56" />
         <circle cx="403.13616" cy="496.51766" r="5.999" fill="#3f3d56" />
         <circle cx="419.93337" cy="496.51766" r="5.999" fill="#3f3d56" />
         <circle cx="436.73057" cy="496.51766" r="5.999" fill="#3f3d56" />
-        <rect
-            x="136.49414"
-            y="181.08605"
-            width="71.11658"
-            height="77.12643"
-            fill="#f2f2f2"
-        />
+        <rect x="136.49414" y="181.08605" width="71.11658" height="77.12643" fill="#f2f2f2" />
         <path
             d="M494.742,421.3721H421.6253V342.24515H494.742Zm-71.1167-2H492.742V344.24515H423.6253Z"
             transform="translate(-277.35175 -167.74613)"
@@ -327,13 +241,7 @@ export const BannerIcon = ({
             transform="translate(-277.35175 -167.74613)"
             fill="#2f2e41"
         />
-        <ellipse
-            cx="92.23885"
-            cy="79.04359"
-            rx="21.85142"
-            ry="17.08893"
-            fill="#2f2e41"
-        />
+        <ellipse cx="92.23885" cy="79.04359" rx="21.85142" ry="17.08893" fill="#2f2e41" />
         <circle cx="85.39075" cy="89.81074" r="28.38064" fill="#a0616a" />
         <path
             d="M345.2039,275.09546s5.73991,11.47981-5.7399,17.21972,22.95962,28.69952,22.95962,28.69952l11.47981-40.17933Z"

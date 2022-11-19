@@ -1,11 +1,11 @@
 import React, { useState, useEffect, useCallback, memo } from 'react';
 import { useAppProvider } from '~/Context/AppProvider/AppProvider';
 import { useDispatch, useSelector } from 'react-redux';
-import { setTabs, setError } from '~/redux/actions/tabHeaderAction';
+import { setTabs, setError } from '~/redux/actions/common/tabHeaderAction';
 import classNames from 'classnames/bind';
 import styles from './NavMenuList.module.scss';
 import * as Service from '~/services/NavModuleService';
-import Nav from '~/container/Header/Nav';
+import Nav from '~/container/Header/NavMenu/Nav';
 
 const cx = classNames.bind(styles);
 
@@ -13,12 +13,12 @@ function NavMenuList() {
     const valueProvider = useAppProvider();
     const listNavManu = useSelector((state) => state.tabReducer);
     const msgError = useSelector((state) => state.tabError);
+    const themeColor = useSelector((state) => state.colorThemeReducer.color);
     const dispatch = useDispatch();
 
     const [active, setActive] = useState('Home');
 
     const onClickAcTive = useCallback((nav) => {
-        console.log('nav =' + nav);
         setActive(nav);
     }, []);
 
@@ -35,19 +35,18 @@ function NavMenuList() {
             dispatch(setError(error));
         }
     };
-    console.log(listNavManu);
     return (
         <>
             {msgError.error && <div>{msgError.error}</div>}
             <div
                 className={cx(
                     'wrapper',
-                    !valueProvider?.themeColor ? 'wrapper-has-color' : '',
+                    themeColor === 'light' ? 'wrapper-has-color' : '',
                     valueProvider?.isSmallSize ? 'isSmallSize' : '',
                 )}>
                 {listNavManu.tabs.length > 0
                     ? listNavManu.tabs.map((nav, index) => (
-                          <Nav nav={nav} active={active} onClickAcTive={onClickAcTive} />
+                          <Nav nav={nav} active={active} onClickAcTive={onClickAcTive} key={index} />
                       ))
                     : msgError}
             </div>

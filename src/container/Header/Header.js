@@ -2,16 +2,18 @@ import React, { useState, createContext } from 'react';
 import { useAppProvider } from '~/Context/AppProvider/AppProvider';
 import classNames from 'classnames/bind';
 import style from './Header.module.scss';
-import HandleColorTheme from '~/layouts/components/ThemeColor';
-import Share from '~/layouts/components/Header/Shares';
+import { useSelector } from 'react-redux';
+import HandleColorTheme from '~/container/Header/ThemeColor';
+import Share from '~/container/Header/Shares';
 import { MenuIcon } from '~/components/Icons';
 import WrapperPopper from '~/components/UI/Popper/WrapperPopper';
 import Logout from '~/Auth/Logout';
-import NavMenuList from '~/container/Header/NavMenuList';
+import NavMenuList from '~/container/Header/NavMenu/NavMenuList';
 
 const cx = classNames.bind(style);
 
 const Header = (props) => {
+    const themeColor = useSelector((state) => state.colorThemeReducer.color);
     const valueProvider = useAppProvider();
     const [anchorEl, setAnchorEl] = useState(null);
     const [isOpen, setIsOpen] = useState(false);
@@ -25,9 +27,8 @@ const Header = (props) => {
     const clickAwayHandler = () => {
         setIsOpen(false);
     };
-    console.log('rerender');
     return (
-        <header className={cx('main-header', !valueProvider?.themeColor ? 'has-border-bottom' : '')}>
+        <header className={cx('main-header', themeColor === 'light' ? 'has-border-bottom' : '')}>
             <div className={cx('main-header-action')}>
                 {valueProvider?.isSmallSize &&
                     (props.Page !== '/admin' ? (

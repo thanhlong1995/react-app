@@ -1,4 +1,4 @@
-import { ThemeColorAction } from '../constants/theme-color-action-types';
+import { ThemeColorAction } from '../../constants/common/theme-color-action-types';
 
 export const setThemeColor = (color) => {
     return {

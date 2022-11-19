@@ -1,4 +1,4 @@
-import { TabActionTypes } from '../constants/tab-action-types';
+import { TabActionTypes } from '../../constants/common/tab-action-types';
 const intialState = {
     tabs: [],
     error: '',

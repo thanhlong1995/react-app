@@ -2,8 +2,8 @@ import { useState, useEffect, useLayoutEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './HandleColorTheme.module.scss';
-import Search from '~/layouts/components/Header/Search';
-import { setThemeColor } from '~/redux/actions/themeColorAction';
+import Search from '~/container/Header/Search';
+import { setThemeColor } from '~/redux/actions/common/themeColorAction';
 
 const cx = classNames.bind(styles);
 function HandleColorTheme() {
@@ -14,7 +14,9 @@ function HandleColorTheme() {
 
     useLayoutEffect(() => {
         checked ? dispatch(setThemeColor('light')) : dispatch(setThemeColor('dark'));
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [checked]);
+
     const handleChangeColor = () => {
         setChecked(!checked);
     };
