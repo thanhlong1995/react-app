@@ -1,5 +1,5 @@
 import React from 'react';
-import ListProject from '~/container/product/basicProject/projectInfo/ListProject';
+import ListProject from '~/container/product/projectInfo/ListProject';
 
 function BasicProject() {
     return <ListProject />;
