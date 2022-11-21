@@ -15,6 +15,7 @@ import Tours from '~/screens/tours';
 import Reviews from '~/screens/reviews';
 import Accordino from '~/screens/accordion/Accordion';
 import Menu from '~/screens/menu';
+import Tabs from '~/screens/tabs';
 
 const publicLayout = [
     { path: config.routes.home, conponent: Home, header: 'display' },
@@ -35,6 +36,7 @@ const productLayout = [
     { path: config.route_product.review, conponent: Reviews },
     { path: config.route_product.accordion, conponent: Accordino },
     { path: config.route_product.menu, conponent: Menu },
+    { path: config.route_product.tabs, conponent: Tabs },
 ];
 
 export { publicLayout, privateLayout, productLayout };

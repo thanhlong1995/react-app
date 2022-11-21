@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 function Tours() {
     return (
-        <main>
+        <main className={cx('main-tour')}>
             <ListTour />
         </main>
     );

@@ -1,0 +1,33 @@
+// Tabs
+.tabs {
+    display: flex;
+    flex-direction: column;
+    line-height: 3;
+    margin: 5px;
+}
+.tab {
+    width: 150px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    border-color: transparent;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    letter-spacing: var(--spacing);
+    transition: all 0.3s linear;
+    cursor: pointer;
+    outline-color: #e0fcff;
+    outline-color: var(--clr-primary-10);
+    margin: 10px;
+
+    &:hover {
+        color: #2caeba;
+        box-shadow: -2px 0 #2caeba;
+    }
+}
+.active-btn {
+    color: #2caeba;
+    box-shadow: -2px 0 #2caeba;
+}

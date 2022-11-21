@@ -7,7 +7,7 @@ const cx = classNames.bind(styles);
 
 function BirthDay() {
     return (
-        <main>
+        <main className={cx('main-birthday')}>
             <section className={cx('container')}>
                 <ListBirthDay />
             </section>

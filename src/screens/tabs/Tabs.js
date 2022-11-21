@@ -1,21 +1,21 @@
 import classNames from 'classnames/bind';
-import styles from './Menu.module.scss';
-import ListMenu from '~/container/product/basicProject/menu';
+import styles from './Tabs.module.scss';
+import Jobs from '~/container/product/basicProject/tabs';
 
 const cx = classNames.bind(styles);
 
-function Menu() {
+function Tabs() {
     return (
         <main>
-            <section className={cx('container-menu')}>
+            <section className={cx('container-tab')}>
                 <div className={cx('div-title')}>
-                    <h2 className={cx('title')}>Our Menu</h2>
+                    <h2 className={cx('title')}>Experience</h2>
                     <div className={cx('underline')}></div>
                 </div>
-                <ListMenu />
+                <Jobs />
             </section>
         </main>
     );
 }
 
-export default Menu;
+export default Tabs;

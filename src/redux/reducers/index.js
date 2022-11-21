@@ -3,7 +3,8 @@ import { tabReducer, tabError } from './common/tabReducer';
 import { colorThemeReducer } from './common/colorThemeReducer';
 import { tourReducer, tourError } from './product/tourReducer';
 import { projectReducer, projectError } from './product/projectReducer';
-import { reviewReducer, reviewError } from './product/reviewReducer';
+import { tabsReducer, tabsError } from './product/tabReducer';
+
 const reducers = combineReducers({
     tabReducer: tabReducer,
     tabError: tabError,
@@ -12,7 +13,7 @@ const reducers = combineReducers({
     tourError: tourError,
     projectReducer: projectReducer,
     projectError: projectError,
-    reviewReducer: reviewReducer,
-    reviewError: reviewError,
+    tabsReducer: tabsReducer,
+    tabsError: tabsError,
 });
 export default reducers;

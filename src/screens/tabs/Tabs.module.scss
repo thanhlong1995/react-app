@@ -1,11 +1,11 @@
-.container-menu {
+.container-tab {
     width: 90vw;
     margin: 0 auto;
     max-width: 1170px;
     max-width: var(--max-width);
     padding: 10rem 0;
 }
-.container-menu .div-title {
+.container-tab .div-title {
     margin: 4rem 0rem;
     display: flex;
     flex-direction: column;
@@ -13,19 +13,14 @@
     align-items: center;
     font-family: ui-monospace;
 }
-.container-menu .div-title .title {
+.container-tab .div-title .title {
     font-size: 5rem;
+    margin-bottom: 1rem;
 }
-.container-menu .underline {
+.container-tab .underline {
     width: 10rem;
     height: 0.7rem;
-    background: #c59d5f;
+    background: #2caeba;
     margin-left: auto;
     margin-right: auto;
-}
-@media screen and (min-width: 992px) {
-    .container-menu {
-        width: 95vw;
-        padding: 10rem 0;
-    }
 }

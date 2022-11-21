@@ -4,6 +4,7 @@ const route_product = {
     review: '/product/review',
     accordion: '/product/accordion',
     menu: '/product/menu',
+    tabs: '/product/tabs',
 };
 
 export default route_product;

@@ -6,7 +6,7 @@ const cx = classNames.bind(styles);
 
 function Reviews() {
     return (
-        <main>
+        <main className={cx('main-review')}>
             <section className={cx('container')}>
                 <div className={cx('title')}>
                     <h2>Our Review</h2>

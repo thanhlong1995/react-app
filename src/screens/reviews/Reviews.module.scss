@@ -1,13 +1,13 @@
-main {
+.main-review {
     min-height: 70vh;
     display: grid;
     place-items: center;
 }
-.container {
+.main-review .container {
     width: 80vw;
     max-width: var(--fixed-width);
 }
-.title {
+.main-review .title {
     margin: 4rem 0rem;
     display: flex;
     flex-direction: column;
@@ -15,7 +15,7 @@ main {
     align-items: center;
     font-family: ui-monospace;
 }
-.underline {
+.main-review .underline {
     width: 6rem;
     height: 0.3rem;
     background: #49a6e9;

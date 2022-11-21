@@ -1,11 +1,11 @@
-main {
+.main-birthday {
     min-height: 100vh;
     max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.container {
+.main-birthday .container {
     width: 50vh;
     margin: 5rem 0;
     max-width: var(--fixed-width);
@@ -15,12 +15,12 @@ main {
     box-shadow: var(--dark-shadow);
     box-shadow: 0 0 5px 0 var(--color-light-blue);
 }
-.container h3 {
+.main-birthday .container h3 {
     font-weight: normal;
     text-transform: none;
     margin-bottom: 2rem;
 }
-.container button {
+.main-birthday .container button {
     color: var(--clr-white);
     display: block;
     width: 100%;
