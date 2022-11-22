@@ -2,45 +2,35 @@ import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames/bind';
 import styles from './Jobs.module.scss';
-import Button from '~/components/UI/Button';
 import * as Service from '~/services/product/TabsService';
-import { setTabs, setError } from '~/redux/actions/product/tabAction';
+import { setTabsProduct, setErrorProduct } from '~/redux/actions/product/tabAction';
 import Tab from './Tab';
 import Job from './Job';
 
 const cx = classNames.bind(styles);
 function Jobs() {
-    const tabs = useSelector((state) => state.tabsReducer.tabs);
-    const msgError = useSelector((state) => state.tabsError.error);
-    const [isActiveButton, setIsActiveButton] = useState(false);
+    const tabProduct = useSelector((state) => state.productTabsReducer.tabProduct);
+    const msgError = useSelector((state) => state.productTabsError.error);
     const [isloading, setIsloading] = useState(false);
     const [value, setValue] = useState(0);
     const dispatch = useDispatch();
 
-    useEffect(() => {
-        getTabs();
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, []);
-    const getTabs = async () => {
+    const getDataTabs = async () => {
         setIsloading(true);
         try {
             const res = await Service.getAll();
-            dispatch(setTabs(res));
+            dispatch(setTabsProduct(res));
             setIsloading(false);
         } catch (error) {
-            dispatch(setError(error));
+            dispatch(setErrorProduct(error));
             setIsloading(false);
         }
     };
 
-    const handleClick = (company) => {
-        // eslint-disable-next-line array-callback-return
-        tabs.map((tab) => {
-            if (tab.company.includes(company)) {
-                setIsActiveButton(true);
-            }
-        });
-    };
+    useEffect(() => {
+        getDataTabs();
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     if (isloading) {
         return (
@@ -49,16 +39,23 @@ function Jobs() {
             </div>
         );
     }
+
     if (msgError) {
         return <div>{msgError}</div>;
     }
-
-    const { company, dates, duties, title } = tabs[value];
-    console.log(company);
     return (
         <div className={cx('jobs-center')}>
-            <Tab tabs={tabs} value={value} setValue={setValue} isActiveButton={isActiveButton} />
-            <Job tabs={tabs} />
+            <div className={cx('btn-container')}>
+                {tabProduct.map((tab, index) => (
+                    <button
+                        key={index}
+                        onClick={() => setValue(index)}
+                        className={cx('tab', index === value && 'active-btn')}>
+                        {tab.company}
+                    </button>
+                ))}
+            </div>
+            {tabProduct.length > 0 && <Job tabProduct={tabProduct[value]} />}
         </div>
     );
 }

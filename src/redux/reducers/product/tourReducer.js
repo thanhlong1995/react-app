@@ -1,4 +1,4 @@
-import { TourActionTypes } from '~/redux/constants/product/tour-action-types';
+import { tourActionTypes } from '~/redux/constants/product/tour-action-types';
 
 const initial = {
     tours: [],
@@ -6,7 +6,7 @@ const initial = {
 };
 export const tourReducer = (state = initial, { type, payload }) => {
     switch (type) {
-        case TourActionTypes.SET_TOURS:
+        case tourActionTypes.SET_TOURS:
             return { ...state, tours: payload };
         default:
             return state;
@@ -15,7 +15,7 @@ export const tourReducer = (state = initial, { type, payload }) => {
 
 export const tourError = (state = '', { type, payload }) => {
     switch (type) {
-        case TourActionTypes.SET_ERROR:
+        case tourActionTypes.SET_ERROR:
             return { error: payload };
         default:
             return state;

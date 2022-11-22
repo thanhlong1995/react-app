@@ -1,22 +1,22 @@
-import { TourActionTypes } from '~/redux/constants/product/tour-action-types';
+import { tourActionTypes } from '~/redux/constants/product/tour-action-types';
 
 export const setTours = (tours) => {
     return {
-        type: TourActionTypes.SET_TOURS,
+        type: tourActionTypes.SET_TOURS,
         payload: tours,
     };
 };
 
 export const removeTour = (id) => {
     return {
-        type: TourActionTypes.REMOVE_TOUR,
+        type: tourActionTypes.REMOVE_TOUR,
         id: id,
     };
 };
 
 export const setError = (error) => {
     return {
-        type: TourActionTypes.SET_ERROR,
+        type: tourActionTypes.SET_ERROR,
         payload: error,
     };
 };

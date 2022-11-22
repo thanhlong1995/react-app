@@ -4,7 +4,7 @@ import Jobs from '~/container/product/basicProject/tabs';
 
 const cx = classNames.bind(styles);
 
-function Tabs() {
+function TabsProduct() {
     return (
         <main>
             <section className={cx('container-tab')}>
@@ -18,4 +18,4 @@ function Tabs() {
     );
 }
 
-export default Tabs;
+export default TabsProduct;

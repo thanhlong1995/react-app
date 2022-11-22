@@ -1,0 +1,32 @@
+.section-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.section-input input {
+    width: 70px;
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    padding-left: 5px;
+    font-size: 2rem;
+}
+.has-theme-color {
+    background-color: #617d98;
+    color: #fff;
+}
+.btn-generate {
+    height: 30px;
+    border-radius: 5px;
+    outline: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    padding: 10px 20px;
+    margin-left: 20px;
+    background-color: #49a6e9;
+    text-transform: uppercase;
+    color: #000;
+    font-family: unset;
+}

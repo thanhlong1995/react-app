@@ -1,15 +1,15 @@
-import { tabActionTypes } from '~/redux/constants/product/tab-action-types';
+import { productTabActionTypes } from '~/redux/constants/product/product-tab-action-types';
 
-export const setTabs = (tab) => {
+export const setTabsProduct = (tabPdoduct) => {
     return {
-        type: tabActionTypes.SET_TABS,
-        payload: tab,
+        type: productTabActionTypes.SET_PRODUCT_TABS,
+        payload: tabPdoduct,
     };
 };
 
-export const setError = (error) => {
+export const setErrorProduct = (error) => {
     return {
-        type: tabActionTypes.SET_ERROR,
+        type: productTabActionTypes.SET_ERROR,
         payload: error,
     };
 };

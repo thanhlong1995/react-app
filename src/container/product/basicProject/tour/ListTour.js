@@ -9,7 +9,7 @@ import Tour from './Tour';
 const cx = classNames.bind(styles);
 
 function ListTour() {
-    const tours = useSelector((state) => state.reviewReducer.reviews);
+    const tours = useSelector((state) => state.tourReducer.tours);
     const msgError = useSelector((state) => state.tourError.error);
     const [isloading, setIsloading] = useState(false);
     const dispatch = useDispatch();

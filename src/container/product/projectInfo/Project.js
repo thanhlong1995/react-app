@@ -11,7 +11,7 @@ function Project({ project }) {
     const themeColor = useSelector((state) => state.colorThemeReducer.color);
     const { id, name, href, image } = project;
     return (
-        <NavLink to={href} key={id} className={cx('item')}>
+        <NavLink to={href} key={id} className={cx('item')} target="_blank">
             <div className={cx('img-container')}>
                 <span className={cx('img-content')}>
                     <Image key={id} src={image} alt="birthday" className={cx('image')} />

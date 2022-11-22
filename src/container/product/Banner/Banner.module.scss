@@ -1,11 +1,11 @@
 .wrapper {
-    min-height: 60vh;
+    min-height: 0vh;
     display: flex;
     -webkit-box-align: center;
     align-items: center;
     -webkit-box-pack: center;
     justify-content: center;
-    padding: 5rem 0px;
+    padding: 0px;
 }
 .title {
     font-size: 6rem;
@@ -37,7 +37,23 @@
     font-weight: 900;
 }
 .banner-image {
-    width: 400px;
-    height: 400px;
-    margin-left: 30px;
+    display: none;
+    position: relative;
+}
+@media screen and (min-width: 992px) {
+    .wrapper {
+        min-height: 60vh;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        justify-content: center;
+        padding: 5rem 0px;
+    }
+    .banner-image {
+        display: block;
+        width: 400px;
+        height: 400px;
+        margin-left: 30px;
+    }
 }

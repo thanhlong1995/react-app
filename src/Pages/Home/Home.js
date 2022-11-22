@@ -18,27 +18,14 @@ const Home = (props) => {
             <div className={cx('title-home-page')}>
                 <h1 className={cx('title')}>React Function component</h1>
                 <span className={cx('desciption')}>
-                    Performant, flexible and extensible forms with easy-to-use
-                    validation.
+                    Performant, flexible and extensible forms with easy-to-use validation.
                 </span>
             </div>
             <div className={cx('button-module')}>
-                <Button
-                    className={cx(
-                        'button',
-                        !valueProvider?.themeColor ? '' : 'not-theme-color',
-                    )}
-                    onClick={handleOnclickDemo}
-                    primary>
+                <Button className={cx('button')} onClick={handleOnclickDemo} primary>
                     Demo
                 </Button>
-                <Button
-                    className={cx(
-                        'button',
-                        !valueProvider?.themeColor ? '' : 'not-theme-color',
-                    )}
-                    onClick={handleOnclickGetStart}
-                    primary>
+                <Button className={cx('button')} onClick={handleOnclickGetStart} primary>
                     Get Started&nbsp;<span>▶</span>
                 </Button>
             </div>

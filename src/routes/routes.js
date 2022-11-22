@@ -15,7 +15,9 @@ import Tours from '~/screens/tours';
 import Reviews from '~/screens/reviews';
 import Accordino from '~/screens/accordion/Accordion';
 import Menu from '~/screens/menu';
-import Tabs from '~/screens/tabs';
+import TabsProduct from '~/screens/tabs';
+import Slider from '~/screens/slider';
+import Lorem from '~/screens/lorem';
 
 const publicLayout = [
     { path: config.routes.home, conponent: Home, header: 'display' },
@@ -36,7 +38,9 @@ const productLayout = [
     { path: config.route_product.review, conponent: Reviews },
     { path: config.route_product.accordion, conponent: Accordino },
     { path: config.route_product.menu, conponent: Menu },
-    { path: config.route_product.tabs, conponent: Tabs },
+    { path: config.route_product.tabsProduct, conponent: TabsProduct },
+    { path: config.route_product.slider, conponent: Slider },
+    { path: config.route_product.lorem, conponent: Lorem },
 ];
 
 export { publicLayout, privateLayout, productLayout };

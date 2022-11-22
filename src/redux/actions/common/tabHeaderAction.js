@@ -1,4 +1,4 @@
-import { TabActionTypes } from '../../constants/common/tab-action-types';
+import { TabActionTypes } from '~/redux/constants/common/tab-action-types';
 
 export const setTabs = (tabs) => {
     return {
