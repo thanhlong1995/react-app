@@ -7,6 +7,7 @@ const route_product = {
     tabsProduct: '/product/tabs',
     slider: '/product/slider',
     lorem: '/product/lorem',
+    grocery: '/product/grocery',
 };
 
 export default route_product;

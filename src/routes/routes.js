@@ -18,6 +18,7 @@ import Menu from '~/screens/menu';
 import TabsProduct from '~/screens/tabs';
 import Slider from '~/screens/slider';
 import Lorem from '~/screens/lorem';
+import Grocery from '~/screens/grocary';
 
 const publicLayout = [
     { path: config.routes.home, conponent: Home, header: 'display' },
@@ -41,6 +42,7 @@ const productLayout = [
     { path: config.route_product.tabsProduct, conponent: TabsProduct },
     { path: config.route_product.slider, conponent: Slider },
     { path: config.route_product.lorem, conponent: Lorem },
+    { path: config.route_product.grocery, conponent: Grocery },
 ];
 
 export { publicLayout, privateLayout, productLayout };

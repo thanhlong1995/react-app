@@ -9,10 +9,16 @@ const cx = classNames.bind(styles);
 
 function LoremIPSum() {
     const [dataLorem, setDataLorem] = useState(loremText);
+    const [currentData, setCurrentData] = useState([]);
     const colorTheme = useSelector((state) => state.colorThemeReducer.color);
     const inputRef = useRef();
     console.log(dataLorem[0]);
-    const handleOnClick = () => {};
+    const handleOnClick = () => {
+        setCurrentData([]);
+        for (let i = 0; i < inputRef.current.value; i++) {
+            setCurrentData((prev) => [...prev, dataLorem[i]]);
+        }
+    };
     return (
         <aside className={cx('section-center')}>
             <div className={cx('section-input')}>
@@ -27,7 +33,14 @@ function LoremIPSum() {
                     generate
                 </Button>
             </div>
-            <div className={cx('section-center')}></div>
+            <div className={cx('section-content')}>
+                {currentData.length > 0 &&
+                    currentData.map((data, index) => (
+                        <p key={index} className={cx('des')}>
+                            {data}
+                        </p>
+                    ))}
+            </div>
         </aside>
     );
 }
